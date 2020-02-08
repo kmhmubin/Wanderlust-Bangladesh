@@ -1,0 +1,45 @@
+#title {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  transition: all 0.5s;
+  z-index: 997;
+}
+#header.header-scrolled {
+  transition: all 0.5s;
+  background-color: rgba(#222222, 0.9);
+  .header-top {
+    display: none;
+  }
+  .main-menu {
+    background: transparent;
+  }
+}
+.banner-area {
+  background: url(../img/hero-bg.jpg) center;
+  background-size: cover;
+  .overlay-bg {
+    background: rgba(#04091e, 0.4);
+  }
+  @media (max-width: 767px) {
+    .fullscreen {
+      height: auto !important;
+    }
+  }
+}
+.relative {
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.overlay-bg {
+  background: rgba($primary-color, 0.85);
+  margin: 7%;
+  @include transition();
+}
