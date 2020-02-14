@@ -58,24 +58,91 @@
     </nav>
     <!-- Banner & Booking -->
     <header class="banner">
-      <div class="row">
-        <h1 class="BD">
-          Bangladesh
-        </h1>
-        <i>
-          <span>
+      <div class="container-fluid">
+        <div class="row fullscreen align-items-center justify-content-between">
+          <div class="col-lg-6 col-md-6 banner-left">
+            <h1 class="bd">
+              Bangladesh
+            </h1>
+            <span class="slide">
               is monsoon mists over the delta<br>
               green hills and secrets<br>
               is waterways like superhighways<br>
-          </span>
-        </i>
-      </div>
-
-
+            </span>
+          </div>
+          <div class="col-lg-4 col-md-6 banner-right">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="flight-tab" data-toggle="tab" href="#flight" role="tab"
+                  aria-controls="flight" aria-selected="true">Flights</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel"
+                  aria-selected="false">Hotels</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="holiday-tab" data-toggle="tab" href="#holiday" role="tab"
+                  aria-controls="holiday" aria-selected="false">Holidays</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
+                <form class="form-wrap">
+                  <input type="text" class="form-control" name="name" placeholder="From "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
+                  <input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'To '">
+                  <input type="text" class="form-control date-picker" name="start" placeholder="Start "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+                  <input type="text" class="form-control date-picker" name="return" placeholder="Return "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
+                  <input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
+                  <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+                  <a href="#" class="btn btn-warning text-uppercase">Search flights</a>
+                </form>
+              </div>
+              <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
+                <form class="form-wrap">
+                  <input type="text" class="form-control" name="name" placeholder="From "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
+                  <input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'To '">
+                  <input type="text" class="form-control date-picker" name="start" placeholder="Start "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+                  <input type="text" class="form-control date-picker" name="return" placeholder="Return "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
+                  <input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
+                  <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+                  <a href="#" class="btn btn-warning text-uppercase">Search Hotels</a>
+                </form>
+              </div>
+              <div class="tab-pane fade" id="holiday" role="tabpanel" aria-labelledby="holiday-tab">
+                <form class="form-wrap">
+                  <input type="text" class="form-control" name="name" placeholder="From "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
+                  <input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'To '">
+                  <input type="text" class="form-control date-picker" name="start" placeholder="Start "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+                  <input type="text" class="form-control date-picker" name="return" placeholder="Return "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
+                  <input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
+                  <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child "
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+                  <a href="#" class="btn btn-warning text-uppercase">Search Holidays</a>
+                </form>
+              </div>
+            </div>
+          </div>
 
     </header>
-    <!-- Introduction -->
-    <section class="intro">
+  <!--  Introduction -->
+   <section class="intro">
       <h2>
         Welcome to Bangladesh
       </h2>
@@ -117,11 +184,11 @@
         steady as the rivers that flow through its veins.</p>
     </section>
     <!-- intro video -->
-    <!-- <section class="intro-video">
+     <section class="intro-video">
         <iframe src="//players.brightcove.net/5104226627001/default_default/index.html?videoId=5212829389001" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
-      </section> -->
+      </section> 
     <!-- top experiences cards -->
-    <!-- <section class="travel-cards">
+    <section class="travel-cards">
         <div>
           <img src="" alt="" />
           <h3>River Trips</h3>
@@ -130,7 +197,165 @@
           </p>
           <a href="#">Learn More <i class="fas fa-chevron-right"></i></a>
         </div>
-      </section> -->
+      </section>
+
+
+    <!-- Footer -->
+
+    <footer class="page-footer font-small blue-grey lighten-5">
+
+      <div style="background-color: #21d192;">
+        <div class="container">
+
+          <!-- Grid row-->
+          <div class="row py-4 d-flex align-items-center">
+
+            <!-- Grid column -->
+            <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+              <h6 class="mb-0">Get connected with us on social networks!</h6>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+              <!-- Facebook -->
+              <a class="fb-ic">
+                <i class="fab fa-facebook-f white-text mr-4"> </i>
+              </a>
+              <!-- Twitter -->
+              <a class="tw-ic">
+                <i class="fab fa-twitter white-text mr-4"> </i>
+              </a>
+              <!-- Google +-->
+              <a class="gplus-ic">
+                <i class="fab fa-google-plus-g white-text mr-4"> </i>
+              </a>
+              <!--Linkedin -->
+              <a class="li-ic">
+                <i class="fab fa-linkedin-in white-text mr-4"> </i>
+              </a>
+              <!--Instagram-->
+              <a class="ins-ic">
+                <i class="fab fa-instagram white-text"> </i>
+              </a>
+
+            </div>
+            <!-- Grid column -->
+
+          </div>
+          <!-- Grid row-->
+
+        </div>
+      </div>
+
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left mt-5">
+
+        <!-- Grid row -->
+        <div class="row mt-3 dark-grey-text">
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+
+            <!-- Content -->
+            <h6 class="text-uppercase font-weight-bold">Wanderlust Bangladesh</h6>
+            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>The world has become so fast paced that people don’t want to stand by reading a page of information, they would much rather look at a presentation and understand the message. It has come to a point.</p>
+
+          </div>
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Cities</h6>
+            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <a class="dark-grey-text" href="#!">Dhaka</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Chittagong</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Sylhet</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Rajshahi</a>
+            </p>
+             <p>
+              <a class="dark-grey-text" href="#!">Khulna</a>
+            </p>
+             <p>
+              <a class="dark-grey-text" href="#!">Mymensingh</a>
+            </p>
+             <p>
+              <a class="dark-grey-text" href="#!">Barisal</a>
+            </p>
+             <p>
+              <a class="dark-grey-text" href="#!">Rangpur</a>
+            </p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Knowledge Zone</h6>
+            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <a class="dark-grey-text" href="#!">About Us</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">When to visit</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Foods & Drinks</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Culture</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Geography</a>
+            </p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <i class="fas fa-home mr-3"></i> Uttara, Bangladesh</p>
+            <p>
+              <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+            <p>
+              <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+            <p>
+              <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Footer Links -->
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center text-black-50 py-3">© 2020 Copyright:
+        <a class="dark-grey-text" href="https://mdbootstrap.com/education/bootstrap/"> Wanderlust-Bangladesh</a>
+      </div>
+      <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
   </div>
 </body>
 
