@@ -1,18 +1,11 @@
-// Read More function
-
-function readMore() {
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("read-more");
-    var btnText = document.getElementById("read");
-    if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "Read More";
-        moreText.style.display = "none";
-    }
-    else {
-        dots.style.display = "none";
-        btnText.innerHTML = "Read Less";
-        moreText.style.display = "inline";
-    }
-
+// This function will show the hidden text when read more button is click
+function toggle(ele) {
+  var cont = document.getElementById("hidden-text");
+  if (cont.style.display == "block") {
+    cont.style.display = "none";
+    document.getElementById(ele.id).value = "Show DIV";
+  } else {
+    cont.style.display = "block";
+    document.getElementById(ele.id).value = "Hide DIV";
+  }
 }

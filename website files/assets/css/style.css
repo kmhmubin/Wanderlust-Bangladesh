@@ -59,7 +59,7 @@ ul {
   height: 500px;
   background: url("https://i.ibb.co/ctJH3r6/bg.jpg") no-repeat center
     center/cover;
-    /*  */
+  /*  */
   align-items: center;
   text-align: center;
   justify-content: flex-end;
@@ -150,13 +150,13 @@ ul {
 
 /* Introduction text */
 
-.intro{
+.intro {
   margin: 20px;
   padding-top: 20px;
 }
 
-.intro-text h2{
-  font-family: 'Lato', sans-serif;
+.intro-text h2 {
+  font-family: "Lato", sans-serif;
   font-size: 44px;
   font-style: normal;
   font-weight: 300;
@@ -166,8 +166,8 @@ ul {
   padding-bottom: 10px;
 }
 
-.intro-text p{
-  font-family: 'lato',sans-serif;
+.intro-text p {
+  font-family: "lato", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 28px;
@@ -177,29 +177,28 @@ ul {
   padding-bottom: 30px;
 }
 
-#hidden-text h4{
-  font-family: 'lato',sans-serif;
+#hidden-text h4 {
+  font-family: "lato", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 24px;
   line-height: 30px;
   color: #2c3543;
   padding-bottom: 10px;
   text-align: left;
-
 }
-#hidden-text p{
-  font-family: 'lato', Georgia, 'Times New Roman', Times, serif,sans-serif;
+#hidden-text p {
+  font-family: "lato", Georgia, "Times New Roman", Times, serif, sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 21px;
   line-height: 36px;
   color: #2c3543;
   padding-bottom: 9px;
 }
-#read-more{
+#hidden-text {
   display: none;
 }
-button{
-  align-items: center ;
+button {
+  align-items: center;
 }
