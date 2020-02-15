@@ -1,5 +1,18 @@
 // Read More function
 
 function readMore() {
-    var moreText = document.getElementById()
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("read-more");
+    var btnText = document.getElementById("read");
+    if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read More";
+        moreText.style.display = "none";
+    }
+    else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read Less";
+        moreText.style.display = "inline";
+    }
+
 }
