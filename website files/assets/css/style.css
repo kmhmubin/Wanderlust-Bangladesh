@@ -254,3 +254,70 @@ button {
 }
 
 /* intro section end */
+
+/* intro video */
+
+.intro-video {
+  padding-top: 80px;
+  margin-top: 20px;
+}
+
+/* Popular Destination start */
+.section-gap {
+  padding: 120px 0;
+}
+.row {
+  display: grid;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.single-destination .overlay-bg {
+  background: rgba(4, 9, 30, 0.4);
+  opacity: 0;
+}
+.single-destination .thumb {
+  position: relative;
+}
+.single-destination .thumb img {
+  width: 100%;
+}
+.single-destination .desc {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.single-destination .desc .price-btn {
+  background: #f8b600;
+  text-align: center;
+  color: black;
+  padding: 6px 30px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+  margin: 10px;
+  opacity: 0;
+}
+.single-destination .desc h4 {
+  color: white;
+}
+.single-destination .desc p {
+  color: white;
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 0px;
+}
+.single-destination:hover .price-btn {
+  opacity: 1;
+}
+.single-destination:hover .overlay-bg {
+  opacity: 1;
+}
+@media (max-width: 991px) {
+  .single-destination {
+    margin-bottom: 30px;
+  }
+}
