@@ -61,3 +61,28 @@ Geoghraphy
 footer
 -----------
 copywrite 2020
+
+
+
+///////////////////////////////
+<!-- logo -->
+      <a href="index.html">
+        <img src="assets/images/Wanderlust-Bangladesh.png" alt="Wanderlust" class="logo" />
+      </a>
+      <!-- Main menu -->
+      <ul class="main-menu">
+        <li><a href="destination.html">Destination</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="video.html">Video</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <!-- right side menu -->
+      <ul class="right-menu">
+        <li>
+          <a href="#"></a>
+          <i class="fas fa-search"></i>
+        </li>
+        <li>
+          <a href="signin.html">Sign In</a>
+        </li>
+      </ul>
