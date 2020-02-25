@@ -8,12 +8,13 @@
     <link rel="icon" href="assets/images/favicon-96x96.png" type="image/png" />
     <script src="https://kit.fontawesome.com/a2e320ebe3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>About Us</title>
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
+    <title>Contact Us</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="main-nav">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="main-nav">
         <div class="container">
             <a href="index.php" class="navbar-brand">
                 <h3 id="name">Wanderlust Bangladesh</h3>
@@ -33,7 +34,7 @@
                         <a href="video.php" class="nav-link">Video</a>
                     </li>
                     <li class="nav-item">
-                        <a href="contact.php" class="nav-link">Contact</a>
+                        <a href="contact.php" class="nav-link active">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a href="signin.php" class="nav-link">Log In</a>
@@ -45,6 +46,45 @@
             </div>
         </div>
     </nav>
+    <section class="contact text-center">
+        <div class="container py-5">
+            <h1 class="text-center py-5">Contact us</h1>
+            <div class="row">
+                <div class="col-lg-6" id="contactleft">
+                    <h2 class="display-4" id="get">
+                        Get in touch
+                    </h2>
+                    <p>If you have any questions,please feel free to drop us a line. We would be happy to answer your questions. Fill out the form and we'll be in touch as soon as possible.</p>
+                </div>
+                <div class="col-lg-6" id="contact-form">
+                    <div class="container py-4">
+                        <form id="form" class="form">
+                            <div class="form-control">
+                                <label for="yourname">Your Name</label>
+                                <input type="text" id="yourname" placeholder="Enter your name" />
+                            </div>
+                            <div class="form-control">
+                                <label for="email">Email</label>
+                                <input type="text" id="email" placeholder="Enter email" />
+                            </div>
+                            <div class="form-control">
+                                <label for="password">Password</label>
+                                <input type="subject" id="subject" placeholder="Subject" />
+                            </div>
+                            <div class="form-control">
+                                <label for="message">Your Message</label>
+                                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                            </div>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
 
     <section class="ftr">
         <footer class="page-footer font-small blue-grey lighten-5">

@@ -8,7 +8,7 @@
     <link rel="icon" href="assets/images/favicon-96x96.png" type="image/png" />
     <script src="https://kit.fontawesome.com/a2e320ebe3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/nav.css">
     <title>Booking</title>
 </head>
 
@@ -27,7 +27,7 @@
                         <a href="dest.php" class="nav-link">Explore</a>
                     </li>
                     <li class="nav-item">
-                        <a href="booking.php" class="nav-link">Booking</a>
+                        <a href="booking.php" class="nav-link active">Booking</a>
                     </li>
                     <li class="nav-item">
                         <a href="video.php" class="nav-link">Video</a>

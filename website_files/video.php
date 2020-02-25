@@ -9,8 +9,9 @@
     <script src="https://cdn.jsdelivr.net/sharer.js/latest/sharer.min.js"></script>
     <script src="https://kit.fontawesome.com/a2e320ebe3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/nav.css">
     <link rel="stylesheet" href="assets/css/video.css">
-    <title>About Us</title>
+    <title>Video</title>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
                         <a href="booking.php" class="nav-link">Booking</a>
                     </li>
                     <li class="nav-item">
-                        <a href="video.php" class="nav-link">Video</a>
+                        <a href="video.php" class="nav-link active">Video</a>
                     </li>
                     <li class="nav-item">
                         <a href="contact.php" class="nav-link">Contact</a>

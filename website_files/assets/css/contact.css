@@ -18,21 +18,6 @@ body {
   justify-content: center;
 }
 
-.navbar {
-  border-bottom: #008ed6 3px solid;
-  opacity: 0.8;
-}
-#name {
-  font-family: "the_blacklist";
-  font-weight: normal;
-  font-style: italic;
-}
-.nav-item {
-  font-family: "Courier New", Courier, monospace;
-  font-weight: 600;
-  color: #ffffff;
-}
-
 /* contact form */
 
 h1 {

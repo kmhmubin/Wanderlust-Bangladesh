@@ -16,21 +16,6 @@ body {
   font-size: 15px;
   line-height: 1.5;
 }
-/* navbar */
-.navbar {
-  border-bottom: #008ed6 3px solid;
-  opacity: 0.8;
-}
-#name {
-  font-family: "the_blacklist";
-  font-weight: normal;
-  font-style: italic;
-}
-.nav-item {
-  font-family: "Courier New", Courier, monospace;
-  font-weight: 600;
-  color: #ffffff;
-}
 #home-section {
   background: url(../img/bg.jpg);
   background-repeat: no-repeat;
