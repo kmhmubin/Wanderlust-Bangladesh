@@ -80,15 +80,12 @@
     <!-- footer -->
     <section class="ftr">
         <footer class="page-footer font-small blue-grey lighten-5">
-
             <!-- Copyright -->
             <div class="footer-copyright text-center text-dark py-3" style="background-color: #21d192;">© 2020 Copyright:
                 <a class="text-light" href="index.php"> Wanderlust-Bangladesh</a>
             </div>
             <!-- Copyright -->
-
         </footer>
-        <!-- Footer -->
     </section>
 
     <!-- js -->

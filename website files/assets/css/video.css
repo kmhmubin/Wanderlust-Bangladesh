@@ -32,13 +32,13 @@ body {
 }
 /* nav bar */
 
-h1 {
+#tv h1 {
   font-family: "lato", sans-serif;
   font-size: 45px;
   font-weight: 600;
   font-style: bold;
 }
-p {
+#tvp p {
   font-family: "lato", sans-serif;
   font-weight: 300;
   font-size: 25px;

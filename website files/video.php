@@ -49,8 +49,8 @@
     <section class="vid-intro py-5 text-dark">
         <div class="container">
             <header>
-                <h1>Travel Videos</h1>
-                <P>love travel videos, they are inspiring, beautiful and always put you in a good mood. Travel videos have the effect of igniting the wanderlust inside all of us, inspiring us, and encouraging us to start doing something new with our lives.</P>
+                <h1 id="tv">Travel Videos</h1>
+                <P id="tvp">love travel videos, they are inspiring, beautiful and always put you in a good mood. Travel videos have the effect of igniting the wanderlust inside all of us, inspiring us, and encouraging us to start doing something new with our lives.</P>
             </header>
         </div>
     </section>

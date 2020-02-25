@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "the_blacklist";
+  src: url("../fonts/the_blacklist-webfont.woff2") format("woff2"),
+    url("../fonts/the_blacklist-webfont.woff") format("woff");
+}
+
+.navbar {
+  border-bottom: #008ed6 3px solid;
+  opacity: 0.8;
+}
+
+#name {
+  font-family: "the_blacklist";
+  font-weight: normal;
+  font-style: italic;
+}
+
+.nav-item {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+  color: #ffffff;
+}
