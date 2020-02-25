@@ -1,181 +1,102 @@
+@import url("https://fonts.googleapis.com/css?family=Lato|Raleway&display=swap");
+@font-face {
+  font-family: "the_blacklist";
+  src: url("../fonts/the_blacklist-webfont.woff2") format("woff2"),
+    url("../fonts/the_blacklist-webfont.woff") format("woff");
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: #fff;
-  color: #000;
+  color: white;
   font-size: 15px;
   line-height: 1.5;
 }
-a {
-  color: #262626;
-  text-decoration: none;
+/* navbar */
+.navbar {
+  border-bottom: #008ed6 3px solid;
+  opacity: 0.8;
 }
-ul {
-  list-style: none;
+#name {
+  font-family: "the_blacklist";
+  font-weight: normal;
+  font-style: italic;
 }
-/* body container */
-.container {
-  width: 96%;
-  max-width: 1200px;
-  margin: auto;
+.nav-item {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+  color: #ffffff;
 }
-/* nav start*/
-.main-nav {
-  display: flex;
-  align-items: center;
-  height: 60px;
-  padding: 20px 0;
-  font-size: 13px;
-}
-.main-nav .logo {
-  width: 110px;
-}
-.main-nav ul {
-  display: flex;
-}
-.main-nav ul li {
-  padding: 0 10px;
-}
-.main-nav ul li a {
-  padding-bottom: 2px;
-}
-.main-nav ul li a:hover {
-  border-bottom: 2px solid #262626;
-}
-.main-nav ul.main-menu {
-  flex: 1;
-  margin-left: 20px;
+#home-section {
+  background: url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 700px;
 }
 
-/* nav end */
-
-/* Banner area start */
-.banner {
-  width: 100%;
-  height: 500px;
-  background: url("https://i.ibb.co/ctJH3r6/bg.jpg") no-repeat center
-    center/cover;
-  /*  */
-  align-items: center;
-  text-align: center;
-  justify-content: flex-end;
-  padding-bottom: 50px;
-  margin-bottom: 20px;
-}
-@media (max-width: 767px) {
-  .banner .fullscreen {
-    height: auto !important;
-  }
-}
-.overlay {
+#home-section .dark-overlay {
   position: absolute;
-  left: 0;
-  right: 0;
   top: 0;
-  bottom: 0;
-}
-.banner-area .overlay-bg {
-  background: rgba(4, 9, 30, 0.4);
+  left: 0;
+  width: 100%;
+  min-height: 700px;
+  background: rgba(0, 0, 0, 0.4);
 }
 
-/* left side banner */
-.banner-left {
-  margin: 10px;
+#home-section .home-inner {
+  padding-top: 150px;
+}
+#banner-left {
+  padding-top: 100px;
+}
+#bd {
+  font-family: "the_blacklist";
+  font-size: 120px;
+  font-style: italic;
   color: #fff;
 }
-.text-white {
-  color: #fff !important;
-}
-.banner-left h6 {
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 2px;
-}
-.banner-left h1 {
-  font-family: "Source Sans Pro", sans-serif;
-  margin: 20px 0;
-  font-size: 90px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 80px;
-  margin-right: 0.3em;
-}
-@media (max-width: 1199px) {
-  .banner-left h1 {
-    font-size: 40px;
-  }
-}
-@media (max-width: 413px) {
-  .banner-left h1 {
-    font-size: 33px;
-  }
-}
-@media (max-width: 991px) and (min-width: 768px) {
-  .banner-left h1 {
-    font-size: 36px;
-  }
-  .banner-left h6 {
-    font-size: 12px;
-  }
-}
-.banner-left p {
-  margin: 20px 0px;
-  font-family: "Satisfy", cursive;
-  font-weight: 400;
-  font-size: 25px;
+#tagline {
+  font-family: "the_blacklist";
+  font-size: 35px;
   font-style: italic;
-  line-height: 30px;
-  overflow: hidden;
-  position: relative;
-  display: inline-block;
-  white-space: nowrap;
-  top: 0;
-  left: 0;
-}
-@media (max-width: 767px) {
-  .banner-left {
-    margin-top: 120px;
-    margin-bottom: 60px;
-  }
 }
 
-/* right side banner */
-
-.banner-right {
-  margin-top: 15px;
+#qikcrd {
+  background: rgba(155, 155, 155, 0.3);
 }
-.banner-right .nav-tabs {
+/* right side form box */
+.tab-content .nav-tabs {
   border-bottom: none;
 }
-.banner-right .nav-item {
-  background: rgba(255, 255, 255, 0.25);
+.tab-content .nav-item {
+  background: rgba(#fff, 0.25);
   text-transform: uppercase;
   font-weight: 600;
   font-size: 13px;
   margin-right: 1px;
 }
-.banner-right .nav-item a {
+.tab-content .nav-item a {
   color: white;
 }
-.banner-right .nav-item:hover a {
+.tab-content .nav-item a:hover {
   border-color: transparent !important;
 }
-.banner-right .nav-tabs .nav-link {
+.tab-content .nav-tabs .nav-link {
   border-radius: 0 !important;
 }
-.banner-right .tab-content {
+.tab-content .tab-content {
   background: white;
 }
-.banner-right .form-wrap {
+.tab-content .form-wrap {
   padding: 40px 30px;
   text-align: center;
 }
-.banner-right .form-wrap .form-control {
+.tab-content .form-control {
   padding: 0.675rem 0.75rem;
   font-size: 13px;
   font-weight: 300;
@@ -183,20 +104,6 @@ ul {
   margin-bottom: 10px;
   border-color: #eee;
 }
-.banner-right .form-wrap .form-control:focus {
-  box-shadow: none;
-}
-@media (max-width: 1024px) {
-  .banner-right {
-    margin-top: 40px;
-  }
-}
-@media (max-width: 767px) {
-  .banner-right {
-    padding-bottom: 50px;
-  }
-}
-/* Banner area end */
 
 /* Introduction text */
 
@@ -238,7 +145,7 @@ ul {
   text-align: left;
 }
 #hidden-text p {
-  font-family: "lato", Georgia, "Times New Roman", Times, serif, sans-serif;
+  font-family: "lato", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 21px;
@@ -253,168 +160,50 @@ button {
   align-items: center;
 }
 
-/* intro section end */
-
 /* intro video */
-
 .intro-video {
   padding-top: 80px;
   margin-top: 20px;
-}
-
-/* Popular Destination start */
-.section-gap {
-  padding: 120px 0;
-}
-.row {
-  display: grid;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-.single-destination .overlay-bg {
-  background: rgba(4, 9, 30, 0.4);
-  opacity: 0;
-}
-.single-destination .thumb {
-  position: relative;
-}
-.single-destination .thumb img {
-  width: 100%;
-}
-.single-destination .desc {
-  text-align: center;
-  position: absolute;
-  width: 100%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-.single-destination .desc .price-btn {
-  background: #f8b600;
-  text-align: center;
-  color: black;
-  padding: 6px 30px;
-  font-size: 14px;
-  font-weight: 600;
-  display: inline-block;
-  margin: 10px;
-  opacity: 0;
-}
-.single-destination .desc h4 {
-  color: white;
-}
-.single-destination .desc p {
-  color: white;
-  font-size: 14px;
-  font-weight: 300;
-  margin-bottom: 0px;
-}
-.single-destination:hover .price-btn {
-  opacity: 1;
-}
-.single-destination:hover .overlay-bg {
-  opacity: 1;
-}
-@media (max-width: 991px) {
-  .single-destination {
-    margin-bottom: 30px;
-  }
-}
-/* Popular destination end */
-
-/* Sign Up Page style */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
-
-:root {
-  --success-color: #2ecc71;
-  --error-color: #e74c3c;
-  --bg-color: #fff;
-}
-
-.signup {
-  background-color: var(--bg-color);
-  font-family: "Open Sans", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin: 0;
-}
-
-.signup .container {
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  width: 400px;
-}
-
-h2 {
-  text-align: center;
-  margin: 0 0 20px;
-}
-
-.form {
-  padding: 30px 40px;
-}
-
-.form-control {
-  margin-bottom: 10px;
   padding-bottom: 30px;
-  position: relative;
-  border: none !important;
 }
 
-.form-control label {
-  color: #777;
-  display: block;
-  margin-bottom: 5px;
+.top-experience .card-title h1 {
+  font-family: "Lato", sans-serif;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 55px;
+  color: #2c3543;
+  text-align: center;
+  padding-bottom: 10px;
 }
 
-.form-control input {
-  border: 2px solid #f0f0f0;
-  border-radius: 4px;
-  display: block;
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
+.top-experience .card-title p {
+  font-family: "lato", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 42px;
+  color: #2c3543;
+  text-align: center;
+  padding-bottom: 30px;
 }
 
-.form-control input:focus {
-  outline: 0;
-  border-color: #777;
+.top-experience .card-deck .card-body h4 {
+  font-family: "lato", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  color: #2c3543;
 }
 
-.form-control.success input {
-  border-color: var(--success-color);
+.top-experience .card-deck .card-body p {
+  font-family: "lato", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 26px;
+  color: #2c3543;
+  padding-bottom: 9px;
 }
-
-.form-control.error input {
-  border-color: var(--error-color);
-}
-
-.form-control small {
-  color: var(--error-color);
-  position: absolute;
-  bottom: 10;
-  left: 10;
-  visibility: hidden;
-}
-
-.form-control.error small {
-  visibility: visible;
-}
-
-.form button {
-  cursor: pointer;
-  background-color: #3498db;
-  border: 2px solid #3498db;
-  border-radius: 4px;
-  color: #fff;
-  display: block;
-  font-size: 16px;
-  padding: 10px;
-  margin-top: 20px;
-  width: 100%;
-}
-/* sign up page end */
