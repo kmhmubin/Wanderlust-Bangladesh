@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/a2e320ebe3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/dest.css">
     <title>Destinations</title>
 </head>
 
@@ -45,6 +46,45 @@
             </div>
         </div>
     </nav>
+    <!-- header section -->
+
+    <header id="d_title">
+        <div class="dark-overlay">
+            <div class="container d_inner">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="display-1">Destination</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="td">
+        <div class="container">
+            <div class="card-deck">
+                <div class="card bg-primary">
+                    <div class="card-body text-center">
+                        <p class="card-text">Some text inside the first card</p>
+                    </div>
+                </div>
+                <div class="card bg-warning">
+                    <div class="card-body text-center">
+                        <p class="card-text">Some text inside the second card</p>
+                    </div>
+                </div>
+                <div class="card bg-success">
+                    <div class="card-body text-center">
+                        <p class="card-text">Some text inside the third card</p>
+                    </div>
+                </div>
+                <div class="card bg-danger">
+                    <div class="card-body text-center">
+                        <p class="card-text">Some text inside the fourth card</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="ftr">
         <footer class="page-footer font-small blue-grey lighten-5">
