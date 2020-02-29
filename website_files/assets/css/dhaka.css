@@ -27,4 +27,35 @@ body {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
   font-weight: 200;
+  padding-bottom: 3px;
+}
+.underline {
+  border: 1.5px solid #222;
+  width: 6rem;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.card {
+  height: 410px !important;
+}
+
+.card-img-top {
+  width: auto;
+  height: 193px;
+}
+.card-title {
+  font-family: "Raleway", sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 300;
+  color: #2c3543;
+}
+
+.card-text {
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  color: #2c3543;
 }

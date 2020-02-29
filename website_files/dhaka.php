@@ -8,8 +8,10 @@
     <link rel="icon" href="assets/img/favicon-96x96.png" type="image/png" />
     <script src="https://kit.fontawesome.com/a2e320ebe3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/mdb.min.css">
     <link rel="stylesheet" href="assets/css/nav.css">
     <link rel="stylesheet" href="assets/css/dhaka.css">
+
     <title>Dhaka</title>
 </head>
 
@@ -58,6 +60,118 @@
             </p>
         </div>
     </header>
+    <section class="destination">
+        <div class="container pb-2">
+            <h1 class="text-center">Places to visit</h1>
+            <div class="underline"></div>
+
+            <!--Carousel Wrapper-->
+            <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+                <!--Controls-->
+                <div class="controls-top">
+                    <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+                    <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+                </div>
+                <!--/.Controls-->
+
+                <!--Indicators-->
+                <ol class="carousel-indicators">
+                    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                    <li data-target="#multi-item-example" data-slide-to="1"></li>
+                </ol>
+                <!--/.Indicators-->
+
+                <!--Slides-->
+                <div class="carousel-inner" role="listbox">
+
+                    <!--First slide-->
+                    <div class="carousel-item active">
+
+                        <div class="col-md-4">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="assets/img/des1.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title">Lalbagh Fort Museum</h4>
+                                    <p class="card-text">17th-century fort with art & antiques.</p>
+                                    <a class="btn btn-primary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="assets/img/Ahsan-Manzil.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title">Ahsan Manzil Museum</h4>
+                                    <p class="card-text">Landmark place of the Dhaka Nawabs.</p>
+                                    <a class="btn btn-primary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="assets/img/jatiya_sangsad.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title">Jatiya Sangsad Bhaban</h4>
+                                    <p class="card-text">Parliament building with modern design. </p>
+                                    <a class="btn btn-primary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--/.First slide-->
+
+                    <!--Second slide-->
+                    <div class="carousel-item">
+
+                        <div class="col-md-4">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="assets/img/star_mosque.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title">Star Mosque</h4>
+                                    <p class="card-text">Muslim Culture Architecture</p>
+                                    <a class="btn btn-primary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="assets/img/sonargaon.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title">Sonargaon</h4>
+                                    <p class="card-text">Museums,folk art, history and folk music</p>
+                                    <a class="btn btn-primary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.Third slide-->
+
+                </div>
+                <!--/.Slides-->
+
+            </div>
+            <!--/.Carousel Wrapper-->
+
+        </div>
+
+    </section>
+    <section>
+        <div class="container p-2 bg-warning">
+        </div>
+    </section>
+
+    <script src="assets/js/app.js"></script>
+
+    <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="assets/js/mdb.min.js"></script>
 </body>
 
 </html>
