@@ -234,6 +234,8 @@
     </section>
 
 
+
+    <!-- Footer -->
     <section class="ftr">
         <footer class="page-footer font-small blue-grey lighten-5">
 
@@ -302,28 +304,28 @@
                         <h6 class="text-uppercase font-weight-bold">Cities</h6>
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                         <p>
-                            <a class="text-info" href="#!">Dhaka</a>
+                            <a class="text-info" href="dhaka.php">Dhaka</a>
                         </p>
                         <p>
-                            <a class="text-info" href="#!">Chittagong</a>
+                            <a class="text-info" href="chittagong.php">Chittagong</a>
                         </p>
                         <p>
-                            <a class="text-info" href="#!">Sylhet</a>
+                            <a class="text-info" href="sylhet.php">Sylhet</a>
                         </p>
                         <p>
-                            <a class="text-info" href="#!">Rajshahi</a>
+                            <a class="text-info" href="rajshahi.php">Rajshahi</a>
                         </p>
                         <p>
-                            <a class="text-info" href="#!">Khulna</a>
+                            <a class="text-info" href="khulna.php">Khulna</a>
                         </p>
                         <p>
-                            <a class="text-info" href="#!">Mymensingh</a>
+                            <a class="text-info" href="mymensingh.php">Mymensingh</a>
                         </p>
                         <p>
-                            <a class="text-info" href="#!">Barisal</a>
+                            <a class="text-info" href="barisal.php">Barisal</a>
                         </p>
                         <p>
-                            <a class="text-info" href="#!">Rangpur</a>
+                            <a class="text-info" href="rangpur.php">Rangpur</a>
                         </p>
 
                     </div>

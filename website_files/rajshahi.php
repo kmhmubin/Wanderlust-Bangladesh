@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/nav.css">
     <link rel="stylesheet" href="assets/css/dhaka.css">
 
-    <title>Dhaka</title>
+    <title>Rajshahi</title>
 </head>
 
 <body>
@@ -52,11 +52,10 @@
 
     <header id="dk_header">
         <div class="container">
-            <h1>Dhaka</h1>
-            <h6>Capital of Bangladesh</h6>
+            <h1>Rajshahi</h1>
+            <h6>City in Bangladesh</h6>
             <p pt-1>
-                Dhaka is the capital city of Bangladesh, in southern Asia. Set beside the Buriganga River, it’s at the center of national government, trade and culture. The 17th-century old city was the Mughal capital of Bengal, and many palaces and mosques remain. American architect Louis Khan’s National Parliament House complex typifies the huge, fast-growing modern metropolis.<br /><br />
-                In Dhaka’s old city, grand, 17th-century Lalbagh Fort contains a museum of paintings, weapons and decorative arts. The Dhakeshwari Temple is the focus of the city’s Hindu community. The National Museum traces Bangladesh’s natural, religious and political history. Graphic displays at the Liberation War Museum reveal the horrors of the 1971 War of Independence. The elaborate 19th-century Ahsan Manzil, or Pink Palace, stands beside the river. Wooden boats offer trips on the water from the busy Sadarghat boat terminal, the heart of traditional riverside life. Colorful painted rickshaws are the city’s main mode of transport.
+                Rajshahi is a metropolitan city, and a major urban, commercial and educational centre of Bangladesh. It is also the administrative seat of eponymous division and district. Located on the north bank of the Padma River, near the Bangladesh-India border, the city has a population of over 763,952 residents. The city is surrounded by the satellite towns of Nowhata and Katakhali, which together build an urban agglomeration of about 1 million population. Arguably Rajshahi is the most clean and green among the cities in Bangladesh. Modern Rajshahi lies in the ancient region of Pundravardhana. The foundation of the city dates to 1634, according to epigraphic records at the mausoleum of Sufi saint Shah Makhdum. The area hosted a Dutch settlement in the 18th century. The Rajshahi municipality was constituted during the British Raj in 1876. It was a divisional capital of the Bengal Presidency. Rajshahi is an important administrative, educational, cultural and business centre in Bangladesh today. It is a historic center of silk production. Varendra Research Museum, the oldest of its kind in Bangladesh, is located in the city.
             </p>
         </div>
     </header>

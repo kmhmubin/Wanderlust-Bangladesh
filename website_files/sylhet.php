@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/nav.css">
     <link rel="stylesheet" href="assets/css/dhaka.css">
 
-    <title>Dhaka</title>
+    <title>Sylhet</title>
 </head>
 
 <body>
@@ -52,11 +52,11 @@
 
     <header id="dk_header">
         <div class="container">
-            <h1>Dhaka</h1>
-            <h6>Capital of Bangladesh</h6>
+            <h1>Sylhet</h1>
+            <h6>City in Bangladesh</h6>
             <p pt-1>
-                Dhaka is the capital city of Bangladesh, in southern Asia. Set beside the Buriganga River, it’s at the center of national government, trade and culture. The 17th-century old city was the Mughal capital of Bengal, and many palaces and mosques remain. American architect Louis Khan’s National Parliament House complex typifies the huge, fast-growing modern metropolis.<br /><br />
-                In Dhaka’s old city, grand, 17th-century Lalbagh Fort contains a museum of paintings, weapons and decorative arts. The Dhakeshwari Temple is the focus of the city’s Hindu community. The National Museum traces Bangladesh’s natural, religious and political history. Graphic displays at the Liberation War Museum reveal the horrors of the 1971 War of Independence. The elaborate 19th-century Ahsan Manzil, or Pink Palace, stands beside the river. Wooden boats offer trips on the water from the busy Sadarghat boat terminal, the heart of traditional riverside life. Colorful painted rickshaws are the city’s main mode of transport.
+                Sylhet is a city in eastern Bangladesh, on the Surma River. It’s known for its Sufi shrines, like the ornate tomb and mosque of 14th-century saint Hazrat Shah Jalal, now a major pilgrimage site near Dargah Gate. The tiny Museum of Rajas contains belongings of the local folk poet Hasan Raja. A 3-domed gateway stands at the 17th-century Shahi Eidgah, a huge open-air hilltop mosque built by Emperor Aurangzeb.<br /><br />
+                The Osmani Museum focuses on General Osmani, commander-in-chief during the Liberation War. Ali Amjad clock tower stands on a red octagonal base, next to the iron Keane Bridge, which spans the river. The region’s tea plantations include Lakatura Tea Garden, northeast of the city center. Khadimnagar National Park, farther northeast, is a forested area with trees like teak and mahogany, plus walking trails. North of here is Ratargul Swamp Forest, on the Shari-Goyain River, which can be explored by boat during the monsoon season. South of Sylhet, Lawachara National Park has trekking routes and wildlife such as gibbons and leopards.
             </p>
         </div>
     </header>

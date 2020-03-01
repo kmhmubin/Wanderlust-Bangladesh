@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/nav.css">
     <link rel="stylesheet" href="assets/css/dhaka.css">
 
-    <title>Dhaka</title>
+    <title>Chittagong</title>
 </head>
 
 <body>
@@ -52,11 +52,11 @@
 
     <header id="dk_header">
         <div class="container">
-            <h1>Dhaka</h1>
-            <h6>Capital of Bangladesh</h6>
+            <h1>Chittagong</h1>
+            <h6>City in Bangladesh</h6>
             <p pt-1>
-                Dhaka is the capital city of Bangladesh, in southern Asia. Set beside the Buriganga River, it’s at the center of national government, trade and culture. The 17th-century old city was the Mughal capital of Bengal, and many palaces and mosques remain. American architect Louis Khan’s National Parliament House complex typifies the huge, fast-growing modern metropolis.<br /><br />
-                In Dhaka’s old city, grand, 17th-century Lalbagh Fort contains a museum of paintings, weapons and decorative arts. The Dhakeshwari Temple is the focus of the city’s Hindu community. The National Museum traces Bangladesh’s natural, religious and political history. Graphic displays at the Liberation War Museum reveal the horrors of the 1971 War of Independence. The elaborate 19th-century Ahsan Manzil, or Pink Palace, stands beside the river. Wooden boats offer trips on the water from the busy Sadarghat boat terminal, the heart of traditional riverside life. Colorful painted rickshaws are the city’s main mode of transport.
+                Chittagong is large port city on the southeastern coast of Bangladesh. The Ethnological Museum has exhibits about the many different ethnic tribes across the country. Zia Memorial Museum, inside the former Old Circuit House, displays items belonging to former president Ziaur Rahman, who was assassinated on the site in 1981. The landmark Chandanpura Mosque has many onion-shaped domes and brightly painted minarets.<br /><br />
+                The Chittagong War Cemetery, northeast of the center, contains hundreds of graves of Commonwealth and Japanese soldiers killed during WWII. The city is surrounded by hills, including Batali Hill, which has sweeping views from its summit. Close by is Foy’s Lake, which has rowboats, plus an amusement park and small zoo. South of the city, near the mouth of the Karnaphuli River, is Patenga Beach, a popular sunset-viewing spot. Farther south, Cox’s Bazar is a town famous for its long sandy beach on the Bay of Bengal.
             </p>
         </div>
     </header>

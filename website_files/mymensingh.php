@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/nav.css">
     <link rel="stylesheet" href="assets/css/dhaka.css">
 
-    <title>Dhaka</title>
+    <title>Mymensingh</title>
 </head>
 
 <body>
@@ -52,11 +52,10 @@
 
     <header id="dk_header">
         <div class="container">
-            <h1>Dhaka</h1>
-            <h6>Capital of Bangladesh</h6>
+            <h1>Mymensingh</h1>
+            <h6>City in Bangladesh</h6>
             <p pt-1>
-                Dhaka is the capital city of Bangladesh, in southern Asia. Set beside the Buriganga River, it’s at the center of national government, trade and culture. The 17th-century old city was the Mughal capital of Bengal, and many palaces and mosques remain. American architect Louis Khan’s National Parliament House complex typifies the huge, fast-growing modern metropolis.<br /><br />
-                In Dhaka’s old city, grand, 17th-century Lalbagh Fort contains a museum of paintings, weapons and decorative arts. The Dhakeshwari Temple is the focus of the city’s Hindu community. The National Museum traces Bangladesh’s natural, religious and political history. Graphic displays at the Liberation War Museum reveal the horrors of the 1971 War of Independence. The elaborate 19th-century Ahsan Manzil, or Pink Palace, stands beside the river. Wooden boats offer trips on the water from the busy Sadarghat boat terminal, the heart of traditional riverside life. Colorful painted rickshaws are the city’s main mode of transport.
+                Mymensingh is the capital of Mymensingh Division of Bangladesh. The city is located on the Brahmaputra River, about 120 km north of Dhaka the capital of the country. Border area cover Himalayan state of India, Gazipur District, Tangail District, Jamalpur District, Netrokona District, Kishoreganj District. Mymensingh is the 8th administrative divisional headquarter and 12th City corporation of Bangladesh. According to Ministry of Public Administration, Mymensingh is ranked 4th in district status. It is a major financial center of North Central Bangladesh and the fifth largest city in Bangladesh. The density of Mymensingh city is 44,458/km² which is the second most densely populated city in Bangladesh. Mymensingh attracts 25 percent of health tourists visiting Bangladesh. Mymensingh is the anglicised pronunciation of the original name Momenshahi, referring to a Muslim ruler called Shah Momin. Its elevation is over 19 m above sea level, the highest of Bangladesh's major cities. Mymensingh related with old Brahmaputra river, handcrafted duvet called Nakshikantha and a rural ballad called Maimansingha Gitika
             </p>
         </div>
     </header>
