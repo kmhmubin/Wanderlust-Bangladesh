@@ -46,47 +46,75 @@
             </div>
         </div>
     </nav>
-    <section class="contact text-center">
-        <div class="container py-5">
-            <h1 class="text-center py-5">Contact us</h1>
+    <!-- page header -->
+    <header id="page-header">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-6" id="contactleft">
-                    <h2 class="display-4" id="get">
-                        Get in touch
-                    </h2>
-                    <p>If you have any questions,please feel free to drop us a line. We would be happy to answer your questions. Fill out the form and we'll be in touch as soon as possible.</p>
+                <div class="col-md-6 m-auto text-center">
+                    <h1>Contact Us</h1>
                 </div>
-                <div class="col-lg-6" id="contact-form">
-                    <div class="container py-4">
-                        <form id="form" class="form">
-                            <div class="form-control">
-                                <label for="yourname">Your Name</label>
-                                <input type="text" id="yourname" placeholder="Enter your name" />
-                            </div>
-                            <div class="form-control">
-                                <label for="email">Email</label>
-                                <input type="text" id="email" placeholder="Enter email" />
-                            </div>
-                            <div class="form-control">
-                                <label for="password">Password</label>
-                                <input type="subject" id="subject" placeholder="Subject" />
-                            </div>
-                            <div class="form-control">
-                                <label for="message">Your Message</label>
-                                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-                            </div>
-                            <button type="submit">Submit</button>
-                        </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <div class="card-body">
+                            <h4>Get In Touch</h4>
+                            <p>Want to learn more about us.</p>
+                            <h4>Address</h4>
+                            <p>Uttara,Bangladesh</p>
+                            <h4>Email</h4>
+                            <p>test@test.com</p>
+                            <h4>Phone</h4>
+                            <p>880 0000-000000</p>
+                        </div>
                     </div>
                 </div>
 
+                <div class="col-md-8">
+                    <div class="card p-4">
+                        <div class="card-body">
+                            <h3 class="text-center">
+                                Please fill out this form to contact us
+                            </h3>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Your Name">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Your Email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <textarea class="form-control" placeholder="Your Message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="submit" value="Submit" class="btn btn-outline-info btn-block">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-
         </div>
-
     </section>
-
-
     <!-- Footer -->
     <section class="ftr">
         <footer class="page-footer font-small blue-grey lighten-5">
