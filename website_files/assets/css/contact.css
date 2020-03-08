@@ -96,3 +96,10 @@ h1 {
   margin-top: 20px;
   width: 100%;
 }
+
+/* about us */
+#page-header {
+  height: 200px;
+  border-bottom: 1px #eee solid;
+  padding-top: 50px;
+}

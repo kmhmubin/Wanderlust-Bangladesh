@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- fav icon -->
-    <link rel="icon" href="assets/images/favicon-96x96.png" type="image/png" />
+    <link rel="icon" href="assets/img/favicon-96x96.png" type="image/png" />
     <script src="https://kit.fontawesome.com/a2e320ebe3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
     <title>About Us</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="main-nav">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="main-nav">
         <div class="container">
             <a href="index.php" class="navbar-brand">
                 <h3 id="name">Wanderlust Bangladesh</h3>
@@ -46,161 +47,160 @@
         </div>
     </nav>
 
+    <!-- page header -->
 
-    <!-- Footer -->
-    <section class="ftr">
-        <footer class="page-footer font-small blue-grey lighten-5">
-
-            <div style="background-color: #21d192;">
-                <div class="container">
-
-                    <!-- Grid row-->
-                    <div class="row py-4 d-flex align-items-center">
-
-                        <!-- Grid column -->
-                        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                            <h6 class="mb-0">Get connected with us on social networks!</h6>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-6 col-lg-7 text-center text-md-right">
-
-                            <!-- Facebook -->
-                            <a class="fb-ic">
-                                <i class="fab fa-facebook-f white-text mr-4"> </i>
-                            </a>
-                            <!-- Twitter -->
-                            <a class="tw-ic">
-                                <i class="fab fa-twitter white-text mr-4"> </i>
-                            </a>
-                            <!--Linkedin -->
-                            <a class="li-ic">
-                                <i class="fab fa-linkedin-in white-text mr-4"> </i>
-                            </a>
-                            <!--Instagram-->
-                            <a class="ins-ic">
-                                <i class="fab fa-instagram white-text"> </i>
-                            </a>
-
-                        </div>
-                        <!-- Grid column -->
-
-                    </div>
-                    <!-- Grid row-->
-
+    <header id="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 m-auto text-center p-3">
+                    <h1>About Us</h1>
                 </div>
             </div>
+        </div>
+    </header>
 
-            <!-- Footer Links -->
-            <div class="container text-center text-md-left mt-5">
+    <!-- About section -->
 
-                <!-- Grid row -->
-                <div class="row mt-3 text-dark">
-
-                    <!-- Grid column -->
-                    <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
-
-                        <!-- Content -->
-                        <h6 class="text-uppercase font-weight-bold">Wanderlust Bangladesh</h6>
-                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>The world has become so fast paced that people don’t want to stand by reading a page of information, they
-                            would much rather look at a presentation and understand the message. It has come to a point.</p>
-
-                    </div>
-
-                    <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                        <!-- Links -->
-                        <h6 class="text-uppercase font-weight-bold">Cities</h6>
-                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>
-                            <a class="text-info" href="dhaka.php">Dhaka</a>
-                        </p>
-                        <p>
-                            <a class="text-info" href="chittagong.php">Chittagong</a>
-                        </p>
-                        <p>
-                            <a class="text-info" href="sylhet.php">Sylhet</a>
-                        </p>
-                        <p>
-                            <a class="text-info" href="rajshahi.php">Rajshahi</a>
-                        </p>
-                        <p>
-                            <a class="text-info" href="khulna.php">Khulna</a>
-                        </p>
-                        <p>
-                            <a class="text-info" href="mymensingh.php">Mymensingh</a>
-                        </p>
-                        <p>
-                            <a class="text-info" href="barisal.php">Barisal</a>
-                        </p>
-                        <p>
-                            <a class="text-info" href="rangpur.php">Rangpur</a>
-                        </p>
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                        <!-- Links -->
-                        <h6 class="text-uppercase font-weight-bold">Knowledge Zone</h6>
-                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>
-                            <a class="text-info" href="#!">About Us</a>
-                        </p>
-                        <p>
-                            <a class="text-info" href="#!">When to visit</a>
-                        </p>
-                        <p>
-                            <a class="text-info" href="#!">Foods & Drinks</a>
-                        </p>
-                        <p>
-                            <a class="text-info" href="#!">Culture</a>
-                        </p>
-                        <p>
-                            <a class="text-info" href="#!">Geography</a>
-                        </p>
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-                        <!-- Links -->
-                        <h6 class="text-uppercase font-weight-bold">Contact</h6>
-                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>
-                            <i class="fas fa-home mr-3"></i> Uttara, Bangladesh</p>
-                        <p>
-                            <i class="fas fa-envelope mr-3"></i> info@example.com</p>
-                        <p>
-                            <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-                        <p>
-                            <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
-
-                    </div>
-                    <!-- Grid column -->
-
+    <section id="about" class="py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Our Goal</h1>
+                    <p>
+                        Our goal is simple. We want to show that how beautiful our country is. It has amazing nature, foods, culture and many more. We make a very simple guide for everyone so that they can visit the place without any kind of hassles. Our goal is to improve better travel quality with best options. So, That you can visit anywhere you want without any worries.
+                    </p>
                 </div>
-                <!-- Grid row -->
-
+                <div class="col-md-6">
+                    <img src="https://source.unsplash.com/random/300x300/?goal" alt="" class="img-fluid rounded-circle d-none d-md-block">
+                </div>
             </div>
-            <!-- Footer Links -->
-
-            <!-- Copyright -->
-            <div class="footer-copyright text-center text-dark py-3">© 2020 Copyright:
-                <a class="text-info" href="index.php"> Wanderlust-Bangladesh</a>
-            </div>
-            <!-- Copyright -->
-
-        </footer>
-        <!-- Footer -->
+        </div>
     </section>
+
+    <!-- Teams -->
+
+    <section id="authors" class="my-5 text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="info-header mb-5">
+                        <h1 class="text-primary pb-3">
+                            Meet The Team
+                        </h1>
+                        <p class="lead">
+                            Passion Leads us Here.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- author cards -->
+            <!-- person 1 -->
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="assets/img/taufiquzzaman.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
+                            <h3>Taufiquzzaman Peyash</h3>
+                            <h5 class="text-muted">Back End Developer</h5>
+                            <p>Computers do not solve problems, they execute solutions.</p>
+                            <div class="d-flex justify-content-center">
+                                <div class="p-4">
+                                    <a href="http://facebook.com"> <i class="fab fa-facebook"></i>
+                                    </a>
+                                </div>
+                                <div class="p-4">
+                                    <a href="http://twitter.com"> <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                                <div class="p-4">
+                                    <a href="http://instagramcom"> <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- person 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="assets/img/shafee.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
+                            <h3>Shafee Amin Chowdhury</h3>
+                            <h5 class="text-muted">Lead writer</h5>
+                            <p>You can always edit a bad page.</p>
+                            <div class="d-flex justify-content-center">
+                                <div class="p-4">
+                                    <a href="http://facebook.com"> <i class="fab fa-facebook"></i>
+                                    </a>
+                                </div>
+                                <div class="p-4">
+                                    <a href="http://twitter.com"> <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                                <div class="p-4">
+                                    <a href="http://instagramcom"> <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- person 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="assets/img/miti.png" alt="" class="img-fluid rounded-circle w-50 mb-3">
+                            <h3>Miti Mostari Rahman Patwary</h3>
+                            <h5 class="text-muted">UI Designer</h5>
+                            <p>Design is intelligence made visible.</p>
+                            <div class="d-flex justify-content-center">
+                                <div class="p-4">
+                                    <a href="http://facebook.com"> <i class="fab fa-facebook"></i>
+                                    </a>
+                                </div>
+                                <div class="p-4">
+                                    <a href="http://twitter.com"> <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                                <div class="p-4">
+                                    <a href="http://instagramcom"> <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- person 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="assets/img/mubin.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
+                            <h3>K. M. H. Mubin</h3>
+                            <h5 class="text-muted">Front End Developer</h5>
+                            <p> Without requirements or design, programming is the art of adding bugs to an empty text file.</p>
+                            <div class="d-flex justify-content-center">
+                                <div class="p-4">
+                                    <a href="http://facebook.com"> <i class="fab fa-facebook"></i>
+                                    </a>
+                                </div>
+                                <div class="p-4">
+                                    <a href="http://twitter.com"> <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                                <div class="p-4">
+                                    <a href="http://instagramcom"> <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <?php require_once 'footer.php'; ?>
 
     <!-- js -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
