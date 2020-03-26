@@ -1,0 +1,112 @@
+/* main arad design */
+
+/* intro section */
+
+.banner_area {
+  width: 100%;
+  background-image: url("../img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-top: 100px;
+
+  .dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 700px;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  #intro_text {
+    padding-top: 30px;
+    padding-bottom: 20px;
+
+    #bd {
+      font-family: $the_blacklist;
+      font-size: 130px;
+      font-style: italic;
+      color: $wht;
+    }
+    #tagline {
+      font-family: $the_blacklist;
+      font-size: 45px;
+      font-style: italic;
+      color: $wht;
+    }
+  }
+}
+
+/* featured Destination area */
+.mb-50 {
+  margin-bottom: 50px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.section-heading {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 100px;
+}
+.section-heading.dark h4 {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: #2a2a2a;
+}
+
+.section-padding-100-50 {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.single-features-area {
+  position: relative;
+  z-index: 1;
+  background-color: #f4f6f8;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+}
+
+.feature-content {
+  padding: 40px 30px;
+}
+
+.feature-content .feature-title h5 {
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+}
+
+.feature-content .feature-title p {
+  font-size: 14px;
+  margin-bottom: 0;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+}
+
+.feature-favourite > a {
+  color: $theme-color;
+  font-size: 24px;
+}
+
+.single-features-area:hover {
+  background-color: $theme-color;
+  box-shadow: 3px 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.single-features-area:hover .feature-content .feature-title h5,
+.single-features-area:hover .feature-content .feature-title p,
+.single-features-area:hover .feature-favourite > a {
+  color: #fff;
+}
+
+/* feature destination area end */

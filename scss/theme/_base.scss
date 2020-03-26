@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Josefin+Sans:wght@300;400;700&display=swap");
+
+/* custom fonts */
+@font-face {
+  font-family: "The_Blacklist";
+  src: url("../fonts/The_Blacklist.ttf") format("truetype");
+}
+
+$josefin: "Josefin Sans", sans-serif;
+$inconsolata: "Inconsolata", monospace;
+$the_blacklist: "The_Blacklist";
+
+/* color variable */
+$wht: #fff;
+$bg-color: #ecfbfc;
+$theme-color: #00bdaa;
+
+/* variable declare end */
+/*  base css */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $josefin;
+  background-color: $bg-color;
+}
+
+.top-area {
+  height: 120px;
+  position: relative;
+  z-index: 1;
+}
+
+.bg-img {
+  background-position: center center;
+  background-size: cover;
+}
+
+.bg-overlay {
+  position: relative;
+  z-index: 1;
+}
+.wrap {
+  max-width: 1300px;
+  margin: 0 auto;
+  background: $white;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* global properties */
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  transition-duration: 500ms;
+  outline: none;
+  font-weight: 600;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $black;
+  font-family: $inconsolata;
+}
+
+.lead {
+  font-size: 22px;
+  color: $black;
+  opacity: 0.7;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
