@@ -6,9 +6,12 @@ const password = document.getElementById("exampleInputPassword");
 form.addEventListener("submit", function(e) {
   e.preventDefault();
 
-  if (username.value === "") {
+  if (username.value === "" || username.value == null) {
     document.getElementById("username_valid").innerHTML = "Username required";
     return false;
-  } else {
+  }
+
+  if (password.value === "" || password.value == null) {
+    document.getElementById("password_valid").innerHTML = "Password required";
   }
 });

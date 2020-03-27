@@ -25,12 +25,10 @@ include "login/header-signin.php";
                                     </div>
                                     <form class="user" id="form">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="exampleInputUser" aria-describedby="UserHelp" placeholder="Enter Username">
-                                            <span id="username_valid" class="text-danger"></span>
+                                            <input type="text" class="form-control form-control-user" id="exampleInputUser" aria-describedby="UserHelp" placeholder="Enter Username" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
-                                            <span id="password_valid" class="text-danger"></span>
+                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" required>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -63,7 +61,6 @@ include "login/header-signin.php";
 
 </div>
 
-<script src="js/validation.js"></script>
 
 
 <?php
