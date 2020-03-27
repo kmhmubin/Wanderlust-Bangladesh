@@ -45,7 +45,7 @@
                                   <a href="blogs.php" class="nav-link">Blog</a>
                               </li>
                               <li class="nav-item">
-                                  <a href="#" class="nav-link">Contact</a>
+                                  <a href="contact.php" class="nav-link">Contact</a>
                               </li>
                           </ul>
 
@@ -56,10 +56,10 @@
 
                           <!-- sign in  -->
                           <div class="wb-signin-btn">
-                              <a href="#"> Sign in</a>
+                              <a href="login.php"> Sign in</a>
                           </div>
                           <div class="wb-signin-btn">
-                              <a href="#"> Sign up</a>
+                              <a href="signup.php"> Sign up</a>
                           </div>
                       </div>
                   </nav>
