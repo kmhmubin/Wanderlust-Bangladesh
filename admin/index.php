@@ -1,6 +1,6 @@
 <?php
-include "inc/header.php";
-include "inc/sidenavbar.php";
+include "include/header.php";
+include "include/sidenavbar.php";
 ?>
 
 
@@ -10,7 +10,7 @@ include "inc/sidenavbar.php";
   <!-- Main Content -->
   <div id="content">
 
-    <?php include "inc/topnavbar.php"; ?>
+    <?php include "include/topnavbar.php"; ?>
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
@@ -301,13 +301,7 @@ include "inc/sidenavbar.php";
 
   </div>
   <!-- End of Main Content -->
-  <?php include "inc/footer.php" ?>
+  <?php include "include/footer.php" ?>
 
 
-</div>
-<!-- End of Content Wrapper -->
-
-</div>
-<!-- End of Page Wrapper -->
-
-<?php include "inc/scripts.php"; ?>
+<?php include "include/scripts.php"; ?>
