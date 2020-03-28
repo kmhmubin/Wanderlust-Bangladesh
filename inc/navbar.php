@@ -39,7 +39,7 @@
                                   <a href="destination.php" class="nav-link">Destinations</a>
                               </li>
                               <li class="nav-item">
-                                  <a href="hotels.php" class="nav-link">Booking</a>
+                                  <a href="hotels.php" class="nav-link">Hotels</a>
                               </li>
                               <li class="nav-item">
                                   <a href="blogs.php" class="nav-link">Blog</a>
