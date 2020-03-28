@@ -24,12 +24,14 @@ include "login/header-signin.php";
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user" id="form">
+                                    <form class="user">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="exampleInputUser" aria-describedby="UserHelp" placeholder="Enter Username" required>
+                                            <input type="text" class="form-control form-control-user" id="exampleInputUserName" aria-describedby="UserHelp" placeholder="Enter Username">
+                                            <span id="userError" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" required>
+                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                                            <span id="passError" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
