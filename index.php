@@ -1,5 +1,5 @@
 <?php
-
+$title = "Wanderlust Bangladesh";
 require_once "inc/header.php";
 require_once "inc/navbar.php";
 ?>

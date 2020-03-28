@@ -144,8 +144,8 @@
           <!-- Footer Links -->
 
           <!-- Copyright -->
-          <div class="footer-copyright text-center text-dark py-3" style="background-color: #ccf0e1;">© 2020 Copyright:
-              <a class="text-info" href="index.php"> Wanderlust-Bangladesh</a>
+          <div class="footer-copyright text-center text-dark py-3" style="background-color: #ccf0e1;">
+              <a class="text-info" href="index.php"> Wanderlust-Bangladesh</a> &copy; <?php echo date("Y"); ?>
           </div>
           <!-- Copyright -->
 

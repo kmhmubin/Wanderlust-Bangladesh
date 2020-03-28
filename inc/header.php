@@ -15,7 +15,7 @@
     <!-- *** theme style files *** -->
     <link rel="stylesheet" href="css/style.css">
     <!-- website title -->
-    <title>Wanderlust Bangladesh</title>
+    <title><?php echo $title; ?></title>
 </head>
 
 <body>

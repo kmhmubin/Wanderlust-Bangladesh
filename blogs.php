@@ -1,4 +1,5 @@
 <?php
+$title = "WanderlustBD - Blogs";
 include "inc/header.php";
 include "inc/navbar.php";
 // include "inc/loader.php";

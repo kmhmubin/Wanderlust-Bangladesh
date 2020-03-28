@@ -1,4 +1,5 @@
 <?php
+$title = "WanderlustBD - Login";
 include "inc/header.php";
 include "inc/navbar.php";
 include "login/header-signin.php";

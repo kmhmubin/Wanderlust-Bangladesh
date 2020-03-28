@@ -1,5 +1,6 @@
 <!-- include header and navbar -->
 <?php
+$title = "WanderlustBD - Contact";
 include "inc/header.php";
 include "inc/navbar.php";
 // include "inc/loader.php";
