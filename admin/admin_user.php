@@ -1,5 +1,6 @@
 <?php
 include "include/header.php";
+include "include/flash_message.php";
 ?>
 
 
@@ -34,7 +35,7 @@ include "include/header.php";
                             <!-- modal body start -->
 
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" name="userName" id="exampleInputUserName" placeholder="User Name">
+                                <input type="text" class="form-control form-control-user" name="username" id="exampleInputUserName" placeholder="User Name">
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail" placeholder="Email Address">
@@ -59,11 +60,10 @@ include "include/header.php";
             </div>
         </div>
 
-
-
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
+
+
 
             <!-- Page Heading -->
             <h1 class="h3 mb-2 text-gray-800">Users Board</h1>
@@ -107,7 +107,6 @@ include "include/header.php";
                         </div>
                     </div>
                 </div>
-
 
             </div>
 
@@ -177,7 +176,20 @@ include "include/header.php";
     </div>
     <!-- End of Main Content -->
 
+
+
     <?php include "include/footer.php"; ?>
 
 
     <?php include "include/scripts.php"; ?>
+
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+        }
+        <?php if (isset($_SESSION['message'])) : ?>
+            toastr.success("<?php echo hello('message'); ?>");
+            toastr.error("<?php echo hello('message'); ?>");
+        <?php endif ?>
+    </script>
