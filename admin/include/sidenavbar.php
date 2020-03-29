@@ -81,20 +81,21 @@
             </div>
         </li>
 
-        <!-- Nav Item - User Menu -->
+        <!-- Nav Item - Hotels Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-hotel"></i>
+                <i class="fas fa-users"></i>
                 <span>Users</span>
             </a>
             <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">User Options:</h6>
-                    <a class="collapse-item" href="add_hotel.php">Add User</a>
-                    <a class="collapse-item" href="hotel_list.php">User list</a>
+                    <h6 class="collapse-header">Users Options:</h6>
+                    <a class="collapse-item" href="admin_user.php">Admin</a>
+                    <a class="collapse-item" href="client_user.php">Client</a>
                 </div>
             </div>
         </li>
+
 
 
 
@@ -106,7 +107,12 @@
             Extra Features
         </div>
 
-
+        <!-- Nav Item - Category -->
+        <li class="nav-item">
+            <a class="nav-link" href="categories.php">
+                <i class="fas fa-tags"></i>
+                <span>Categories</span></a>
+        </li>
 
         <!-- Nav Item - Comments -->
         <li class="nav-item">
