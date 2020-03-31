@@ -104,7 +104,19 @@ include "include/header.php";
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">Admin User</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                        <!-- total user number fetch from register table -->
+                                        <?php
+
+                                        $totalUserCount = "SELECT id FROM users ORDER BY id";
+                                        $Count_response = mysqli_query($conn, $totalUserCount);
+                                        // store row numbers in a variable
+                                        $row = mysqli_num_rows($Count_response);
+                                        echo $row;
+
+                                        ?>
+
+                                    </div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -115,6 +127,7 @@ include "include/header.php";
                 </div>
 
             </div>
+            <!-- show the alert message -->
             <?php
             if (isset($_SESSION['success']) && $_SESSION['success'] != '') {
                 echo $_SESSION['success'];
