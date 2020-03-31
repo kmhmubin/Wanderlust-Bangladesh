@@ -87,7 +87,7 @@ if (isset($_POST['updateBtn'])) {
     $email = htmlentities($email);
     $password = htmlentities($password);
 
-
+    $password = password_hash($password, PASSWORD_BCRYPT);
     // update query 
     $update_data = "UPDATE users SET First_Name = '$fname', Last_Name = '$lname', User_Name = '$username', email = '$email', Password = '$password' WHERE id = '$id' ";
 
