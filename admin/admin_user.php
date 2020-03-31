@@ -1,6 +1,5 @@
 <?php
 include "include/header.php";
-include "include/flash_message.php";
 ?>
 
 
@@ -33,7 +32,14 @@ include "include/flash_message.php";
                     <form class="user" action="add_admin.php" method="POST">
                         <div class="modal-body">
                             <!-- modal body start -->
-
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" name="fname" id="exampleInputFirstName" placeholder="First Name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control form-control-user" name="lname" id="exampleInputLastName" placeholder="Last Name">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user" name="username" id="exampleInputUserName" placeholder="User Name">
                             </div>
@@ -109,7 +115,18 @@ include "include/flash_message.php";
                 </div>
 
             </div>
+            <?php
+            if (isset($_SESSION['success']) && $_SESSION['success'] != '') {
+                echo $_SESSION['success'];
+                unset($_SESSION['success']);
+            }
 
+            if (isset($_SESSION['error']) && $_SESSION['error'] != '') {
+                echo $_SESSION['error'];
+                unset($_SESSION['error']);
+            }
+
+            ?>
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -117,53 +134,69 @@ include "include/flash_message.php";
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
+
+                        <!-- Fetching data from database in the table -->
+                        <?php
+                        $show_data = "SELECT * FROM users";
+                        $query_response = mysqli_query($conn, $show_data);
+                        ?>
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>ID</th>
+                                    <th>UserName</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>ID</th>
+                                    <th>UserName</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>2011/07/25</td>
-                                    <td>$170,750</td>
-                                </tr>
-                                <tr>
-                                    <td>Ashton Cox</td>
-                                    <td>Junior Technical Author</td>
-                                    <td>San Francisco</td>
-                                    <td>66</td>
-                                    <td>2009/01/12</td>
-                                    <td>$86,000</td>
-                                </tr>
 
+                                <?php
+                                if (mysqli_num_rows($query_response) > 0) {
+                                    while ($row = mysqli_fetch_assoc($query_response)) {
+                                ?>
+
+                                        <tr>
+                                            <td><?php echo $row['id']; ?></td>
+                                            <td><?php echo $row['User_Name']; ?></td>
+                                            <th><?php echo $row['First_Name']; ?></th>
+                                            <th><?php echo $row['Last_Name']; ?></th>
+                                            <td><?php echo $row['email']; ?></td>
+                                            <td>
+                                                <form action="admin_edit.php" method="POST">
+                                                    <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">
+                                                    <button type="submit" name="edit_btn" class="btn btn-warning btn-circle">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </form>
+
+                                            </td>
+                                            <td>
+                                                <button type="submit" class="btn btn-danger btn-circle">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                <?php
+                                    }
+                                } else {
+                                    echo "No Record Found!";
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
@@ -184,12 +217,9 @@ include "include/flash_message.php";
     <?php include "include/scripts.php"; ?>
 
     <script>
-        toastr.options = {
-            "closeButton": true,
-            "progressBar": true,
-        }
-        <?php if (isset($_SESSION['message'])) : ?>
-            toastr.success("<?php echo hello('message'); ?>");
-            toastr.error("<?php echo hello('message'); ?>");
-        <?php endif ?>
+        window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                $(this).remove();
+            });
+        }, 4000);
     </script>
