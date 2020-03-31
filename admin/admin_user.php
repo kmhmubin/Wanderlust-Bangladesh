@@ -186,9 +186,13 @@ include "include/header.php";
 
                                             </td>
                                             <td>
-                                                <button type="submit" class="btn btn-danger btn-circle">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
+                                                <form action="add_admin.php" method="POST">
+                                                    <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
+                                                    <button type="submit" name="deleteBtn" class="btn btn-danger btn-circle">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+
                                             </td>
                                         </tr>
                                 <?php

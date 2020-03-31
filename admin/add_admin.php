@@ -113,3 +113,33 @@ if (isset($_POST['updateBtn'])) {
         header("Location: admin_user.php");
     }
 }
+
+
+// Delete data from database
+
+if (isset($_POST['deleteBtn'])) {
+    $id = $_POST['delete_id'];
+
+    // delete query
+    $delete_data = "DELETE FROM users WHERE id='$id'";
+    // query response
+    $delete_response = mysqli_query($conn, $delete_data);
+
+    if ($delete_response === true) {
+        $_SESSION['success'] = "<div class='alert alert-success' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-check-circle'></i></strong> Delete Successfully!
+            </div>";
+        header("Location: admin_user.php");
+    } else {
+        $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-exclamation-circle'></i></strong> Not Deleted!
+            </div>";
+        header("Location: admin_user.php");
+    }
+}
