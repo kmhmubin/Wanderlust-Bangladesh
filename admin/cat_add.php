@@ -45,3 +45,76 @@ if (isset($_POST['categoryBtn'])) {
         header("Location: categories.php");
     }
 }
+
+
+// update existing data from table
+
+if (isset($_POST['updateBtn'])) {
+    // assign variable 
+    $id = $_POST['edit_id'];
+    $catName = $_POST['edit_name'];
+    $catDescription = $_POST['edit_description'];
+
+    // securing data from sql injection
+    $catName = mysqli_real_escape_string($conn, $catName);
+    $catDescription = mysqli_real_escape_string($conn, $catDescription);
+
+    // securing data from cross site script 
+    $fname = htmlentities($catName);
+    $lname = htmlentities($catDescription);
+
+    // update query 
+    $update_data = "UPDATE categories SET Category_Name = '$catName', Category_Description = '$catDescription' WHERE id = '$id' ";
+
+    // query response
+    $update_response = mysqli_query($conn, $update_data);
+
+    // check condition for data
+    if ($update_response) {
+        $_SESSION['success'] = "<div class='alert alert-success' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-check-circle'></i></strong> Update Successfully!
+            </div>";
+        header("Location: categories.php");
+    } else {
+        $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-exclamation-circle'></i></strong> Not Updated!
+            </div>";
+        header("Location: categories.php");
+    }
+}
+
+// delete categories from table
+
+
+if (isset($_POST['deleteBtn'])) {
+    $id = $_POST['delete_id'];
+
+    // delete query
+    $delete_data = "DELETE FROM categories WHERE id='$id'";
+    // query response
+    $delete_response = mysqli_query($conn, $delete_data);
+
+    if ($delete_response === true) {
+        $_SESSION['success'] = "<div class='alert alert-success' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-check-circle'></i></strong> Delete Successfully!
+            </div>";
+        header("Location: categories.php");
+    } else {
+        $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-exclamation-circle'></i></strong> Not Deleted!
+            </div>";
+        header("Location: categories.php");
+    }
+}

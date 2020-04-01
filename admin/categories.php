@@ -75,7 +75,7 @@ include "include/header.php";
                                     </button>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                                    <i class="fas fa-tags fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +104,7 @@ include "include/header.php";
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                                    <i class="fas fa-tags fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +178,7 @@ include "include/header.php";
 
                                             </td>
                                             <td>
-                                                <form action="add_admin.php" method="POST">
+                                                <form action="cat_add.php" method="POST">
                                                     <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
                                                     <button type="submit" name="deleteBtn" class="btn btn-danger btn-circle">
                                                         <i class="fas fa-trash"></i>
