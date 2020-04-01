@@ -143,3 +143,4 @@ if (isset($_POST['deleteBtn'])) {
         header("Location: admin_user.php");
     }
 }
+
