@@ -191,8 +191,8 @@ if (isset($_SESSION['username'])) {
                                             <tr>
                                                 <td><?php echo $row['id']; ?></td>
                                                 <td><?php echo $row['User_Name']; ?></td>
-                                                <th><?php echo $row['First_Name']; ?></th>
-                                                <th><?php echo $row['Last_Name']; ?></th>
+                                                <td><?php echo $row['First_Name']; ?></td>
+                                                <td><?php echo $row['Last_Name']; ?></td>
                                                 <td><?php echo $row['email']; ?></td>
                                                 <td>
                                                     <form action="admin_edit.php" method="POST">

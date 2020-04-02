@@ -40,47 +40,59 @@ function add_post()
         $post_views = 0;
         $post_comment_count = 0;
 
-        // for image
-        if (isset($_FILES['post_image'])) {
-            $dir = "../img/posts/";
-            $target_file = $dir . basename($_FILES['post_image']['name']);
-            if (move_uploaded_file($_FILES['post_image']['tmp_name'], $target_file)) {
-                $_SESSION['success'] = "<div class='alert alert-success' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-            <span aria-hidden='true'>&times;</span>
-            </button>
-            <strong><i class='fas fa-check-circle'></i></strong> Image Added Successfully!
-            </div>";
-            } else {
-                $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-            <span aria-hidden='true'>&times;</span>
-            </button>
-            <strong><i class='fas fa-exclamation-circle'></i></strong> Image Not Added!
-            </div>";
-            }
-        }
-        // insert data into table
-        $insert_post = "INSERT INTO posts(post_title,post_category,post_category_id,post_author,post_content,post_date,post_image,post_comment_count,post_views,post_tags,post_status) VALUES('$post_title','$post_category','$post_category_id','$post_author','$post_content','$date','$target_file','$post_comment_count','$post_views','$post_tags','$post_status') ";
-        // response query
-        $post_response = mysqli_query($conn, $insert_post);
-        // check response
-        if ($post_response) {
-            $_SESSION['success'] = "<div class='alert alert-success' role='alert'>
+        //    image uploade
+        $post_image = $_FILES['post_image'];
+        $image_name = $_FILES['post_image']['name'];
+        $image_size = $_FILES['post_image']['size'];
+        $tmp_dir = $_FILES['post_image']['tmp_name'];
+        $image_type = $_FILES['post_image']['type'];
+        // check image type
+        if ($image_type == "post_image/jpeg" || $image_type == "post_image/png" || $image_type == "post_image/jpg") {
+            // check image size not bigger than 5mb
+            if ($image_size <= 5242880) {
+                // move image from temp dir to database
+                move_uploaded_file($tmp_dir, "../img/posts/" . $image_name);
+
+
+                // insert data into table
+                $insert_post = "INSERT INTO posts(post_title,post_category,post_category_id,post_author,post_content,post_date,post_image,post_comment_count,post_views,post_tags,post_status) VALUES('$post_title','$post_category','$post_category_id','$post_author','$post_content','$date','$image_name','$post_comment_count','$post_views','$post_tags','$post_status') ";
+                // response query
+                $post_response = mysqli_query($conn, $insert_post);
+                // check response
+                if ($post_response) {
+                    $_SESSION['success'] = "<div class='alert alert-success' role='alert'>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
             <span aria-hidden='true'>&times;</span>
             </button>
             <strong><i class='fas fa-check-circle'></i></strong> Post Added Successfully!
             </div>";
-            header("Location: post_list.php");
-        } else {
-            $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
+                    header("Location: post_list.php");
+                } else {
+                    $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
             <span aria-hidden='true'>&times;</span>
             </button>
             <strong><i class='fas fa-exclamation-circle'></i></strong> Post Not Added!
             </div>";
-            header("Location: post_list.php");
+                    header("Location: post_list.php");
+                }
+            } else {
+                $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-exclamation-circle'></i></strong> Image size too big! Less than 5MB!
+            </div>";
+                header("Location: add_post.php");
+            }
+        } else {
+            $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-exclamation-circle'></i></strong> Wrong Image Format!
+            </div>";
+            header("Location: add_post.php");
         }
     }
 }

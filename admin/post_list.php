@@ -7,6 +7,7 @@ include "include/header.php";
 <?php include "include/sidenavbar.php";
 
 
+
 if (isset($_SESSION['username'])) {
     // if username is true show those
 ?>
@@ -104,7 +105,6 @@ if (isset($_SESSION['username'])) {
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-
                             <!-- Fetching data from database in the table -->
                             <?php
                             $show_data = "SELECT * FROM posts";
@@ -117,6 +117,7 @@ if (isset($_SESSION['username'])) {
                                         <th>Title</th>
                                         <th>Category</th>
                                         <th>Author</th>
+                                        <th>Image</th>
                                         <th>Content</th>
                                         <th>Comments</th>
                                         <th>Views</th>
@@ -131,6 +132,7 @@ if (isset($_SESSION['username'])) {
                                         <th>Title</th>
                                         <th>Category</th>
                                         <th>Author</th>
+                                        <th>Image</th>
                                         <th>Content</th>
                                         <th>Comments</th>
                                         <th>Views</th>
@@ -140,21 +142,23 @@ if (isset($_SESSION['username'])) {
                                     </tr>
                                 </tfoot>
                                 <tbody>
-
                                     <?php
                                     if (mysqli_num_rows($query_response) > 0) {
                                         while ($row = mysqli_fetch_assoc($query_response)) {
+                                            $post_image = $row['post_image'];
                                     ?>
-
                                             <tr>
                                                 <td><?php echo $row['post_id']; ?></td>
                                                 <td><?php echo $row['post_title']; ?></td>
                                                 <td><?php echo $row['post_category']; ?></td>
                                                 <td><?php echo $row['post_author']; ?></td>
+                                                <td><?php echo $row['post_image']; ?></td>
+                                                <td> <img src="/img/posts/<?php echo $row['post_image']; ?>"></td>
                                                 <td><?php echo $row['post_content']; ?></td>
                                                 <td><?php echo $row['post_comment_count']; ?></td>
                                                 <td><?php echo $row['post_views']; ?></td>
                                                 <td><?php echo $row['post_date']; ?></td>
+
                                                 <td>
                                                     <form action="post_edit.php" method="POST">
                                                         <input type="hidden" name="edit_id" value="<?php echo $row['post_id']; ?>">
@@ -183,6 +187,7 @@ if (isset($_SESSION['username'])) {
                                 </tbody>
                             </table>
                         </div>
+
                     </div>
                 </div>
 

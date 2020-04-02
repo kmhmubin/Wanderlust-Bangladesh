@@ -17,7 +17,7 @@ if (mysqli_num_rows($result) > 0) {
         $post_comment_count = $row['post_comment_count'];
         $post_views = $row['post_views'];
         $post_tags = $row['post_tags'];
-        $post_ = $row['post_title'];
+
 ?>
         <!-- horizontal blog post card -->
         <div class="row mb-5 mt-5">
@@ -27,7 +27,7 @@ if (mysqli_num_rows($result) > 0) {
                 <div class="post-entry-horzontal">
                     <a href="article.php">
                         <div class="image element-animate" data-animate-effect="fadeIn">
-                            <img src="../img/posts/<?php echo $post_image;  ?>" alt="" srcset="">
+                            <img src="img/posts/<?php echo $post_image;  ?>" alt="post_image">
                         </div>
                         <span class="text">
                             <div class="post-meta">
