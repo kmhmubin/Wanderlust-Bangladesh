@@ -145,7 +145,6 @@ if (isset($_SESSION['username'])) {
                                     <?php
                                     if (mysqli_num_rows($query_response) > 0) {
                                         while ($row = mysqli_fetch_assoc($query_response)) {
-                                            $post_image = $row['post_image'];
                                     ?>
                                             <tr>
                                                 <td><?php echo $row['post_id']; ?></td>
@@ -153,7 +152,7 @@ if (isset($_SESSION['username'])) {
                                                 <td><?php echo $row['post_category']; ?></td>
                                                 <td><?php echo $row['post_author']; ?></td>
                                                 <td><?php echo $row['post_image']; ?></td>
-                                                <td> <img src="/img/posts/<?php echo $row['post_image']; ?>"></td>
+                                                <td> <img src="../img/posts/<?php echo $row['post_image']; ?>" width="50px;"></td>
                                                 <td><?php echo $row['post_content']; ?></td>
                                                 <td><?php echo $row['post_comment_count']; ?></td>
                                                 <td><?php echo $row['post_views']; ?></td>

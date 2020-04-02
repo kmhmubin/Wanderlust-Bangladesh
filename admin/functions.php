@@ -40,14 +40,14 @@ function add_post()
         $post_views = 0;
         $post_comment_count = 0;
 
-        //    image uploade
-        $post_image = $_FILES['post_image'];
-        $image_name = $_FILES['post_image']['name'];
-        $image_size = $_FILES['post_image']['size'];
-        $tmp_dir = $_FILES['post_image']['tmp_name'];
-        $image_type = $_FILES['post_image']['type'];
+        //    image upload 
+        $post_image = $_FILES['image'];
+        $image_name = $_FILES['image']['name'];
+        $image_size = $_FILES['image']['size'];
+        $tmp_dir = $_FILES['image']['tmp_name'];
+        $image_type = $_FILES['image']['type'];
         // check image type
-        if ($image_type == "post_image/jpeg" || $image_type == "post_image/png" || $image_type == "post_image/jpg") {
+        if ($image_type == "image/jpeg" || $image_type == "image/png" || $image_type == "image/jpg") {
             // check image size not bigger than 5mb
             if ($image_size <= 5242880) {
                 // move image from temp dir to database
