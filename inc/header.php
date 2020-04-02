@@ -1,3 +1,8 @@
+<?php
+ob_start();
+session_start();
+include "admin/include/db.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
