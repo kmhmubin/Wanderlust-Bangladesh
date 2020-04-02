@@ -15,7 +15,7 @@
                     while ($row = mysqli_fetch_assoc($result)) {
                 ?>
                        <li>
-                           <a href="">
+                           <a href="article.php?post=<?php echo $row['post_id']; ?>">
                                <img src="img/posts/<?php echo $row['post_image']; ?>" alt="Image placeholder" class="mr-4">
                                <div class="text">
                                    <h4><?php echo $row['post_title']; ?></h4>

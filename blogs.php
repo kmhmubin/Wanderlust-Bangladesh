@@ -29,6 +29,7 @@ include "inc/navbar.php";
                 <div class="col-md-12 col-lg-4 sidebar">
                     <!-- sidebar search -->
                     <?php include "blogs/sidebar-search.php"; ?>
+                    <div class="p-2"></div>
                     <!-- sidebar  popular posts list  -->
                     <?php include "blogs/sidebar-popular-post.php"; ?>
                     <!-- Categories List sidebar start -->

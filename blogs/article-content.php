@@ -1,29 +1,46 @@
- <!-- article content start -->
- <div class="col-md-12 col-lg-8 main-content">
-     <img src="https://i.ibb.co/stmXFvC/dawid-zawila-zb2v-Ba-HYB2-I-unsplash.jpg" alt="Image" class="img-fluid mb-5">
-     <div class="post-meta">
-         <span class="author mr-2"><img src="img/images/person_3.jpg" alt="Board Cat" class="mr-2"> Board Cat</span>&bullet;
-         <span class="mr-2">March 25, 2020 </span> &bullet;
-         <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-     </div>
-     <h1 class="mb-4">There’s a Cool New Way for Cats to Wear Socks and Sandals</h1>
-     <a class="category mb-5" href="#">Food</a> <a class="category mb-5" href="#">Travel</a>
+ <?php
 
-     <div class="post-content-body">
-         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas inventore, ut iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius. Nam eius, non unde ut aut sunt eveniet rerum repellendus porro.</p>
+    if (mysqli_num_rows($respond) > 0) {
+        while ($row = mysqli_fetch_assoc($respond)) {
 
-         <div class="row mb-5">
-             <div class="col-md-12 mb-4">
-                 <img src="https://i.ibb.co/stmXFvC/dawid-zawila-zb2v-Ba-HYB2-I-unsplash.jpg" alt="Image placeholder" class="img-fluid">
+            $post_id = $row['post_id'];
+            $post_title = $row['post_title'];
+            $post_category = $row['post_category'];
+            $post_category_id = $row['post_category_id'];
+            $post_author = $row['post_author'];
+            $post_content = $row['post_content'];
+            $post_date = $row['post_date'];
+            $post_image = $row['post_image'];
+            $post_comment_count = $row['post_comment_count'];
+            $post_views = $row['post_views'];
+            $post_tags = $row['post_tags'];
+
+    ?>
+
+
+         <!-- article content start -->
+         <div class="col-md-12 col-lg-8 main-content">
+             <img src="img/posts/<?php echo $post_image;  ?>" alt="Image" class="img-fluid mb-5">
+             <div class="post-meta">
+                 <span class="author mr-2"><?php echo $post_author; ?></span>&bullet;
+                 <span class="mr-2"><?php echo $post_date; ?> </span> &bullet;
+                 <span class="ml-2"><span class="fa fa-comments"></span> <?php echo $post_comment_count;  ?></span>
+             </div>
+             <h1 class="mb-4"><?php echo $post_title; ?></h1>
+             <a class="category mb-5" href="#"><?php echo $post_category; ?></a>
+
+             <div class="post-content-body">
+                 <p class="lead"><?php echo $post_content; ?></p>
+
+
+
              </div>
 
-         </div>
-         <p class="lead"> Quibusdam autem, quas molestias recusandae aperiam molestiae modi qui ipsam vel. Placeat tenetur veritatis tempore quos impedit dicta, error autem, quae sint inventore ipsa quidem. Quo voluptate quisquam reiciendis, minus, animi minima eum officia doloremque repellat eos, odio doloribus cum.</p>
+             <!-- article content end -->
 
-         <p class="lead">Quibusdam autem, quas molestias recusandae aperiam molestiae modi qui ipsam vel. Placeat tenetur veritatis tempore quos impedit dicta, error autem, quae sint inventore ipsa quidem. Quo voluptate quisquam reiciendis, minus, animi minima eum officia doloremque repellat eos, odio doloribus cum.</p>
 
-         <p class="lead">Quibusdam autem, quas molestias recusandae aperiam molestiae modi qui ipsam vel. Placeat tenetur veritatis tempore quos impedit dicta, error autem, quae sint inventore ipsa quidem. Quo voluptate quisquam reiciendis, minus, animi minima eum officia doloremque repellat eos, odio doloribus cum.</p>
+     <?php
+        }
+    }
 
-     </div>
-
-     <!-- article content end -->
+        ?>

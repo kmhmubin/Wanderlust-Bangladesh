@@ -25,7 +25,7 @@ if (mysqli_num_rows($result) > 0) {
 
                 <!--         blog post box       -->
                 <div class="post-entry-horzontal">
-                    <a href="article.php">
+                    <a href="article.php?post=<?php echo $post_id; ?>">
                         <div class="image element-animate" data-animate-effect="fadeIn">
                             <img src="img/posts/<?php echo $post_image;  ?>" alt="post_image">
                         </div>

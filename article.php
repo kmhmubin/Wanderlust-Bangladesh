@@ -1,4 +1,5 @@
 <?php
+$title = "WanderlustBD - Article post";
 include "inc/header.php";
 include "inc/navbar.php";
 // include "inc/loader.php";
@@ -13,11 +14,22 @@ include "inc/navbar.php";
 
             <div class="row blog-entries element-animate">
 
+                <?php
+                if (isset($_GET['post'])) {
+                    $id = $_GET['post'];
+
+                    $show_article = "SELECT * FROM posts WHERE post_id = '$id'";
+                    $respond = mysqli_query($conn, $show_article);
+                } else {
+                    header("Location: blogs.php");
+                }
+                ?>
+
                 <?php include "blogs/article-content.php"; ?>
 
                 <!-- article categories and tags -->
                 <div class="pt-5">
-                    <p>Categories: <a href="#">Food</a>, <a href="#">Travel</a> Tags: <a href="#">#manila</a>, <a href="#">#asia</a></p>
+                    <p>Categories: <a href="#"><?php echo $post_category; ?></a> Tags: <a href="#"><?php echo "#" . $post_tags;  ?></a></p>
                 </div>
 
 
@@ -39,6 +51,7 @@ include "inc/navbar.php";
                 <!-- sidebar search bar -->
                 <?php include "blogs/sidebar-search.php"; ?>
                 <!-- sidebar search bar end -->
+                <div class="p-5"></div>
                 <!-- sidebar author section start -->
                 <?php include "blogs/sidebar-author.php"; ?>
                 <!-- sidebar  popular posts list  -->
