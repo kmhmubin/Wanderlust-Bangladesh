@@ -121,7 +121,8 @@ if (isset($_SESSION['username'])) {
                                         <th>Content</th>
                                         <th>Comments</th>
                                         <th>Views</th>
-                                        <th>Publish Data</th>
+                                        <th>Data</th>
+                                        <th>Status</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -136,7 +137,8 @@ if (isset($_SESSION['username'])) {
                                         <th>Content</th>
                                         <th>Comments</th>
                                         <th>Views</th>
-                                        <th>Publish Data</th>
+                                        <th>Data</th>
+                                        <th>Status</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -151,13 +153,12 @@ if (isset($_SESSION['username'])) {
                                                 <td><?php echo $row['post_title']; ?></td>
                                                 <td><?php echo $row['post_category']; ?></td>
                                                 <td><?php echo $row['post_author']; ?></td>
-                                                <td><?php echo $row['post_image']; ?></td>
                                                 <td> <img src="../img/posts/<?php echo $row['post_image']; ?>" width="50px;"></td>
                                                 <td><?php echo $row['post_content']; ?></td>
                                                 <td><?php echo $row['post_comment_count']; ?></td>
                                                 <td><?php echo $row['post_views']; ?></td>
                                                 <td><?php echo $row['post_date']; ?></td>
-
+                                                <td><?php echo $row['post_status'];  ?></td>
                                                 <td>
                                                     <form action="post_edit.php" method="POST">
                                                         <input type="hidden" name="edit_id" value="<?php echo $row['post_id']; ?>">
