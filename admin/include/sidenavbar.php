@@ -37,19 +37,10 @@
 
         <!-- Nav Item - Posts Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link" href="post_list.php">
                 <i class="fas fa-newspaper"></i>
-                <span>Posts</span>
-            </a>
-            <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Post Options:</h6>
-                    <a class="collapse-item" href="add_post.php">Add Post</a>
-                    <a class="collapse-item" href="post_list.php">Post list</a>
-                </div>
-            </div>
+                <span>Posts</span></a>
         </li>
-
         <!-- Nav Item - Destination Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">

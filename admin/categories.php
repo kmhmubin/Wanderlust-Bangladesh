@@ -4,13 +4,13 @@ include "include/header.php";
 
 
 <!-- Sidebar -->
-<?php include "include/sidenavbar.php";
+<?php include "include/sidenavbar.php";  ?>
+<!-- End of Sidebar -->
 
-
+<?php
 if (isset($_SESSION['username'])) {
     // if username is true show those
 ?>
-    <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -24,46 +24,30 @@ if (isset($_SESSION['username'])) {
 
             <!-- Add admin modal form -->
 
-            <!-- Modal -->
+            <!--Add  Modal -->
             <div class="modal fade" id="addAdminProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add Admin Info</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Add Category Info</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form class="user" action="add_admin.php" method="POST">
+                        <form class="user" action="cat_add.php" method="POST">
                             <div class="modal-body">
                                 <!-- modal body start -->
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" name="fname" id="exampleInputFirstName" placeholder="First Name">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" name="lname" id="exampleInputLastName" placeholder="Last Name">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" name="username" id="exampleInputUserName" placeholder="User Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail" placeholder="Email Address">
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" name="repeatPassword" id="exampleRepeatPassword" placeholder="Repeat Password">
-                                    </div>
-                                </div>
 
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" name="cat_name" id="exampleInputCategory" placeholder="Category Name">
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="cat_description" class="form-control" id="exampleInputCategoryDes" cols="10" rows="5" placeholder="Category Description"></textarea>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary" name="registerBtn">Add</button>
+                                <button type="submit" class="btn btn-primary" name="categoryBtn">Add</button>
                             </div>
                         </form>
 
@@ -71,13 +55,14 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
 
+
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
 
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Users Board</h1>
+                <h1 class="h3 mb-2 text-gray-800">Category Board</h1>
 
                 <div class="row">
                     <!-- Add admin Card Example -->
@@ -86,16 +71,16 @@ if (isset($_SESSION['username'])) {
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">Add Admin</div>
+                                        <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">Add Category</div>
                                         <button class="btn btn-success btn-icon-split" type="button" data-toggle="modal" data-target="#addAdminProfile">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-user-plus"></i>
                                             </span>
-                                            <span class="text">Add Admin User</span>
+                                            <span class="text">Add Category</span>
                                         </button>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                                        <i class="fas fa-tags fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
@@ -108,13 +93,13 @@ if (isset($_SESSION['username'])) {
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">Admin User</div>
+                                        <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">Categories</div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <!-- total user number fetch from register table -->
                                             <?php
 
-                                            $totalUserCount = "SELECT id FROM users ORDER BY id";
-                                            $Count_response = mysqli_query($conn, $totalUserCount);
+                                            $totalCount = "SELECT id FROM categories ORDER BY id";
+                                            $Count_response = mysqli_query($conn, $totalCount);
                                             // store row numbers in a variable
                                             $row = mysqli_num_rows($Count_response);
                                             echo $row;
@@ -124,7 +109,7 @@ if (isset($_SESSION['username'])) {
                                         </div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                                        <i class="fas fa-tags fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
@@ -148,24 +133,22 @@ if (isset($_SESSION['username'])) {
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Admin User Table</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Category Table</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
 
                             <!-- Fetching data from database in the table -->
                             <?php
-                            $show_data = "SELECT * FROM users";
+                            $show_data = "SELECT * FROM categories";
                             $query_response = mysqli_query($conn, $show_data);
                             ?>
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>UserName</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Email</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -173,10 +156,8 @@ if (isset($_SESSION['username'])) {
                                 <tfoot>
                                     <tr>
                                         <th>ID</th>
-                                        <th>UserName</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Email</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -190,12 +171,10 @@ if (isset($_SESSION['username'])) {
 
                                             <tr>
                                                 <td><?php echo $row['id']; ?></td>
-                                                <td><?php echo $row['User_Name']; ?></td>
-                                                <th><?php echo $row['First_Name']; ?></th>
-                                                <th><?php echo $row['Last_Name']; ?></th>
-                                                <td><?php echo $row['email']; ?></td>
+                                                <td><?php echo $row['Category_Name']; ?></td>
+                                                <th><?php echo $row['Category_Description']; ?></th>
                                                 <td>
-                                                    <form action="admin_edit.php" method="POST">
+                                                    <form action="cat_edit.php" method="POST">
                                                         <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">
                                                         <button type="submit" name="edit_btn" class="btn btn-warning btn-circle">
                                                             <i class="fas fa-pencil-alt"></i>
@@ -204,7 +183,7 @@ if (isset($_SESSION['username'])) {
 
                                                 </td>
                                                 <td>
-                                                    <form action="add_admin.php" method="POST">
+                                                    <form action="cat_add.php" method="POST">
                                                         <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
                                                         <button type="submit" name="deleteBtn" class="btn btn-danger btn-circle">
                                                             <i class="fas fa-trash"></i>
