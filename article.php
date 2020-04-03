@@ -36,10 +36,16 @@ include "inc/navbar.php";
                 <!-- comment section -->
                 <div class="pt-5">
                     <!-- comments -->
-                    <h3 class="mb-5">1 Comments</h3>
+                    <h3 class="mb-5"><?php
+                                        (isset($_GET['post'])) ? $post_id = $_GET['post'] : $post_id = 0;
+                                        $comment_count = mysqli_query($conn, "SELECT * FROM comments WHERE comment_status = 'Approve' AND comment_post_id = '$post_id'");
+                                        $num_comments = mysqli_num_rows($comment_count);
+                                        echo $num_comments . " comment(s)";
+
+                                        ?></h3>
                     <?php include "blogs/comments.php"; ?>
                     <!-- comment form -->
-                
+
                     <?php include "blogs/comment-form.php"; ?>
                 </div>
                 <!-- comment section end -->
@@ -96,3 +102,11 @@ include "inc/navbar.php";
 <?php
 require_once "inc/footer.php";
 ?>
+
+<script>
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function() {
+            $(this).remove();
+        });
+    }, 4000);
+</script>

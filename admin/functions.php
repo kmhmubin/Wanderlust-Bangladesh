@@ -98,3 +98,94 @@ function add_post()
 }
 
 add_post();
+
+// comment delete , approve , unapproved
+
+// Approve comment from database
+
+if (isset($_POST['approveBtn'])) {
+    $comment_id = $_POST['approve'];
+
+    // delete query
+    $approve_data = "UPDATE comments SET  comment_status = 'Approve' WHERE comm_id = '$comment_id'";
+    // query response
+    $approve_response = mysqli_query($conn, $approve_data);
+
+    if ($approve_response === true) {
+        $_SESSION['success'] = "<div class='alert alert-success' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-check-circle'></i></strong> Comment Approve!
+        </div>";
+        header("Location: comment.php");
+    } else {
+        $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-exclamation-circle'></i></strong> Comment Not Approved!
+        </div>";
+        header("Location: comment.php");
+    }
+}
+
+// Approve comment from database
+
+if (isset($_POST['unapprovedBtn'])) {
+    $comment_id = $_POST['unapproved'];
+
+    // delete query
+    $approve_data = "UPDATE comments SET  comment_status = 'Unapproved' WHERE comm_id = '$comment_id'";
+    // query response
+    $approve_response = mysqli_query($conn, $approve_data);
+
+    if ($approve_response === true) {
+        $_SESSION['success'] = "<div class='alert alert-success' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-check-circle'></i></strong> Comment Unapproved!
+        </div>";
+        header("Location: comment.php");
+    } else {
+        $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-exclamation-circle'></i></strong> Comment Not Unapproved!
+        </div>";
+        header("Location: comment.php");
+    }
+}
+
+
+
+// Delete comment from database
+
+if (isset($_POST['deleteBtn'])) {
+    $comment_id = $_POST['delete_id'];
+
+    // delete query
+    $delete_data = "DELETE FROM comments WHERE comm_id='$comment_id'";
+    // query response
+    $delete_response = mysqli_query($conn, $delete_data);
+
+    if ($delete_response === true) {
+        $_SESSION['success'] = "<div class='alert alert-success' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-check-circle'></i></strong> Delete Successfully!
+        </div>";
+        header("Location: comment.php");
+    } else {
+        $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-exclamation-circle'></i></strong> Not Deleted!
+        </div>";
+        header("Location: comment.php");
+    }
+}

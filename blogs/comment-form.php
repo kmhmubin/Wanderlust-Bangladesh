@@ -1,7 +1,7 @@
  <!-- comment form -->
  <?php
     if (isset($_GET['post'])) {
-        $post_id = $_GET['post'];
+        $comment_post_id = $_GET['post'];
         if (isset($_POST['comment'])) {
 
             $comment_name = $_POST['c_name'];
@@ -18,7 +18,7 @@
             $comment_body = htmlentities($comment_body);
             $id = htmlentities($id);
             // insert comment into data table
-            $comment_sql = "INSERT INTO comments(comment_name,comment_email,comment_body,comment_status,post_id,comment_date) VALUES ('$comment_name','$comment_email','$comment_body','Unapproved','$post_id',now())";
+            $comment_sql = "INSERT INTO comments(comment_name,comment_email,comment_body,comment_status,comment_post_id,comment_date) VALUES ('$comment_name','$comment_email','$comment_body','Unapproved','$comment_post_id',now())";
             // database response
             $comment_response = mysqli_query($conn, $comment_sql);
             if ($comment_response) {

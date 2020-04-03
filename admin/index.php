@@ -278,50 +278,94 @@ if (isset($_SESSION['username'])) {
                 <h6 class="m-0 font-weight-bold text-primary">Latest Comments</h6>
               </a>
               <!-- Card Content - Collapse -->
-              <div class="collapse show" id="collapseCardComment">
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <th>Title</th>
-                          <th>Author</th>
-                          <th>Time</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tfoot>
-                        <tr>
-                          <th>Title</th>
-                          <th>Author</th>
-                          <th>Time</th>
-                          <th>Action</th>
-                        </tr>
-                      </tfoot>
-                      <tbody>
-                        <tr>
-                          <td>Tiger Nixon</td>
-                          <td>System Architect</td>
-                          <td>2011/04/25</td>
-                          <td> <a href="#" class="btn btn-danger btn-circle">
-                              <i class="fas fa-trash"></i>
-                            </a> <a href="#" class="btn btn-success btn-circle">
-                              <i class="fas fa-check"></i>
-                            </a></td>
-                        </tr>
-                        <tr>
-                          <td>Garrett Winters</td>
-                          <td>Accountant</td>
-                          <td>2011/07/25</td>
-                          <td> <a href="#" class="btn btn-danger btn-circle">
-                              <i class="fas fa-trash"></i>
-                            </a></td>
-                        </tr>
+              <div class="card-body">
+                <div class="table-responsive">
 
-                      </tbody>
-                    </table>
-                  </div>
+                  <!-- Fetching data from database in the table -->
+                  <?php
+                  $show_data = "SELECT * FROM comments ORDER BY comment_date LIMIT 5";
+                  $query_response = mysqli_query($conn, $show_data);
+                  ?>
 
+
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Comment</th>
+                        <th>Date</th>
+                        <th>Post</th>
+                        <th>Approve</th>
+                        <th>Unapproved</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Comment</th>
+                        <th>Date</th>
+                        <th>Post</th>
+                        <th>Approve</th>
+                        <th>Unapproved</th>
+                        <th>Delete</th>
+                      </tr>
+                    </tfoot>
+
+                    <tbody>
+
+                      <?php
+                      if (mysqli_num_rows($query_response) > 0) {
+                        while ($row = mysqli_fetch_assoc($query_response)) {
+                          $comment_post_id = $row['comment_post_id'];
+                      ?>
+
+                          <tr>
+                            <td><?php echo $row['comm_id']; ?></td>
+                            <td><?php echo  $row['comment_name']; ?></td>
+                            <td><?php echo $row['comment_body']; ?></td>
+                            <td><?php echo $row['comment_date']; ?></td>
+                            <td><?php echo $row['comment_post_id']; ?></td>
+                            <td>
+                              <form action="functions.php" method="POST">
+                                <input type="hidden" name="approve" value="<?php echo $row['comm_id']; ?>">
+                                <button type="submit" name="approveBtn" class="btn btn-success btn-circle">
+                                  <i class="fas fa-check"></i>
+                                </button>
+                              </form>
+
+                            </td>
+                            <td>
+                              <form action="functions.php" method="POST">
+                                <input type="hidden" name="unapproved" value="<?php echo $row['comm_id']; ?>">
+                                <button type="submit" name="unapprovedBtn" class="btn btn-warning btn-circle">
+                                  <i class="fas fa-times"></i>
+                                </button>
+                              </form>
+
+                            </td>
+                            <td>
+                              <form action="functions.php" method="POST">
+                                <input type="hidden" name="delete_id" value="<?php echo $row['comm_id']; ?>">
+                                <button type="submit" name="deleteBtn" class="btn btn-danger btn-circle">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </form>
+
+                            </td>
+                          </tr>
+                      <?php
+
+                        }
+                      } else {
+                        echo "No Record Found!";
+                      }
+                      ?>
+                    </tbody>
+
+                  </table>
                 </div>
               </div>
             </div>
