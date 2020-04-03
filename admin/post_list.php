@@ -33,7 +33,7 @@ if (isset($_SESSION['username'])) {
                 <h1 class="h3 mb-2 text-gray-800">Posts Board</h1>
 
                 <div class="row">
-                    <!-- Add admin Card Example -->
+                    <!-- Add post Card Example -->
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
@@ -55,7 +55,7 @@ if (isset($_SESSION['username'])) {
                         </div>
                     </div>
 
-                    <!-- Admin Users total Card Example -->
+                    <!--  total post Card Example -->
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-warning shadow h-100 py-2">
                             <div class="card-body">

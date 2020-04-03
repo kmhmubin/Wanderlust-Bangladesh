@@ -35,7 +35,18 @@ if (isset($_SESSION['username'])) {
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Posts</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">200</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      <!-- total user number fetch from register table -->
+                      <?php
+
+                      $totalPostCount = "SELECT post_id FROM posts ORDER BY post_id";
+                      $Count_response = mysqli_query($conn, $totalPostCount);
+                      // store row numbers in a variable
+                      $row = mysqli_num_rows($Count_response);
+                      echo $row;
+
+                      ?>
+                    </div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-newspaper fa-2x text-gray-300"></i>
@@ -125,45 +136,46 @@ if (isset($_SESSION['username'])) {
               <div class="collapse show" id="collapseCardPost">
                 <div class="card-body">
                   <!-- DataTales Example -->
-
+                  <!-- Fetching data from database in the table -->
+                  <?php
+                  $show_data = "SELECT * FROM posts ORDER BY post_id DESC LIMIT 5";
+                  $query_response = mysqli_query($conn, $show_data);
+                  ?>
                   <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
                       <thead>
                         <tr>
                           <th>Title</th>
+                          <th>Category</th>
                           <th>Author</th>
                           <th>Time</th>
-                          <th>Action</th>
                         </tr>
                       </thead>
                       <tfoot>
                         <tr>
                           <th>Title</th>
+                          <th>Category</th>
                           <th>Author</th>
                           <th>Time</th>
-                          <th>Action</th>
                         </tr>
                       </tfoot>
                       <tbody>
-                        <tr>
-                          <td>Tiger Nixon</td>
-                          <td>System Architect</td>
-                          <td>2011/04/25</td>
-                          <td> <a href="#" class="btn btn-danger btn-circle">
-                              <i class="fas fa-trash"></i>
-                            </a> <a href="#" class="btn btn-success btn-circle">
-                              <i class="fas fa-check"></i>
-                            </a></td>
-                        </tr>
-                        <tr>
-                          <td>Garrett Winters</td>
-                          <td>Accountant</td>
-                          <td>2011/07/25</td>
-                          <td> <a href="#" class="btn btn-danger btn-circle">
-                              <i class="fas fa-trash"></i>
-                            </a></td>
-                        </tr>
-
+                        <?php
+                        if (mysqli_num_rows($query_response) > 0) {
+                          while ($row = mysqli_fetch_assoc($query_response)) {
+                        ?>
+                            <tr>
+                              <td><?php echo $row['post_title']; ?></td>
+                              <td><?php echo $row['post_category']; ?></td>
+                              <td><?php echo $row['post_author']; ?></td>
+                              <td><?php echo $row['post_date']; ?></td>
+                            </tr>
+                        <?php
+                          }
+                        } else {
+                          echo "No Record Found!";
+                        }
+                        ?>
                       </tbody>
                     </table>
                   </div>
