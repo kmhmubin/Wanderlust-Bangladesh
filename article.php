@@ -39,6 +39,7 @@ include "inc/navbar.php";
                     <h3 class="mb-5">1 Comments</h3>
                     <?php include "blogs/comments.php"; ?>
                     <!-- comment form -->
+                
                     <?php include "blogs/comment-form.php"; ?>
                 </div>
                 <!-- comment section end -->
