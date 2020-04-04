@@ -12,7 +12,11 @@ function add_post()
         $post_title = $_POST['title'];
         $post_author = $_POST['author'];
         $post_category = $_POST['category'];
-        $post_category_id = $_POST['category_id'];
+        // get the category_id 
+        $select_cat = mysqli_query($conn, "SELECT id FROM categories WHERE Category_Name = '$post_category' ");
+        $row = mysqli_fetch_assoc($select_cat);
+        $post_category_id = $row['id'];
+
         $post_content = $_POST['content'];
         $post_tags = $_POST['tags'];
         $post_status = $_POST['status'];
@@ -31,7 +35,7 @@ function add_post()
         $post_author = htmlentities($post_author);
         $post_category = htmlentities($post_category);
         $post_category_id = htmlentities($post_category_id);
-        $post_content = htmlentities($post_content);
+        // $post_content = htmlentities($post_content);
         $post_tags = htmlentities($post_tags);
         $post_status = htmlentities($post_status);
 
@@ -98,6 +102,35 @@ function add_post()
 }
 
 add_post();
+
+// publish or draft post
+
+function modifyStatus($id)
+{
+    global $conn;
+
+    $post_status_query = mysqli_query($conn, "SELECT post_status FROM posts WHERE post_id = '$id'");
+    if (mysqli_num_rows($post_status_query) > 0) {
+        $result = mysqli_fetch_assoc($post_status_query);
+        $status = $result['post_status'];
+        if ($status == "draft") {
+            $query = mysqli_query($conn, "UPDATE posts SET post_status = 'published' WHERE post_id = '$id'");
+        } else {
+            $query = mysqli_query($conn, "UPDATE posts SET post_status = 'draft' WHERE post_id = '$id'");
+        }
+        return true;
+    } else {
+        return false;
+    }
+}
+// escape function
+function escape($string)
+{
+    global $conn;
+
+    return mysqli_real_escape_string($conn, trim($string));
+}
+
 
 // comment delete , approve , unapproved
 

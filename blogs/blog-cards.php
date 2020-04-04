@@ -1,5 +1,5 @@
 <?php
-$show_blogs = "SELECT * FROM posts";
+$show_blogs = "SELECT * FROM posts WHERE post_status = 'published' ORDER BY post_id DESC";
 // query response
 $result = mysqli_query($conn, $show_blogs);
 

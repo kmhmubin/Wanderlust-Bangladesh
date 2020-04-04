@@ -49,7 +49,7 @@ include "include/sidenavbar.php";
                         </div>
                         <div class="form-group">
                             <label> Post Author</label>
-                            <input type="text" class="form-control form-control-user" name="author" placeholder="Post Author">
+                            <input type="text" value="<?php echo $_SESSION['username']; ?>" class="form-control form-control-user" name="author" placeholder="Post Author">
                         </div>
 
                         <div class="form-group">
@@ -61,22 +61,6 @@ include "include/sidenavbar.php";
                                 while ($row = mysqli_fetch_assoc($cat_response)) {
                                     $cat_title = $row['Category_Name'];
                                     echo "<option value='$cat_title'>$cat_title</option>";
-                                }
-
-                                ?>
-
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label> Post Category ID</label>
-                            <select class=" form-control form-control-user" name="category_id">
-                                <?php
-                                $category_id_grab = "SELECT * FROM categories";
-                                $cat_id_response = mysqli_query($conn, $category_id_grab);
-                                while ($row = mysqli_fetch_assoc($cat_id_response)) {
-                                    $cat_title = $row['Category_Name'];
-                                    $cat_id = $row['id'];
-                                    echo "<option value='$cat_id'>$cat_id - $cat_title</option>";
                                 }
 
                                 ?>
@@ -104,7 +88,7 @@ include "include/sidenavbar.php";
                                 <option value="published">Published</option>
                             </select>
                         </div>
-                        <a href="posts.php" class="btn btn-danger">Cancel</a>
+                        <a href="posts_list.php" class="btn btn-danger">Cancel</a>
                         <input type="submit" name="publish" value="Publish Post" class="btn btn-success"></input>
                     </form>
 

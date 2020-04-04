@@ -105,20 +105,14 @@ if (isset($_SESSION['username'])) {
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <!-- Fetching data from database in the table -->
-                            <?php
-                            $show_data = "SELECT * FROM posts";
-                            $query_response = mysqli_query($conn, $show_data);
-                            ?>
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <!-- <th>ID</th> -->
                                         <th>Title</th>
                                         <th>Category</th>
                                         <th>Author</th>
                                         <th>Image</th>
-                                        <th>Content</th>
                                         <th>Comments</th>
                                         <th>Views</th>
                                         <th>Data</th>
@@ -129,12 +123,11 @@ if (isset($_SESSION['username'])) {
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>ID</th>
+                                        <!-- <th>ID</th> -->
                                         <th>Title</th>
                                         <th>Category</th>
                                         <th>Author</th>
                                         <th>Image</th>
-                                        <th>Content</th>
                                         <th>Comments</th>
                                         <th>Views</th>
                                         <th>Data</th>
@@ -145,40 +138,67 @@ if (isset($_SESSION['username'])) {
                                 </tfoot>
                                 <tbody>
                                     <?php
+                                    $show_data = "SELECT * FROM posts ORDER BY post_id DESC";
+                                    $query_response = mysqli_query($conn, $show_data);
                                     if (mysqli_num_rows($query_response) > 0) {
                                         while ($row = mysqli_fetch_assoc($query_response)) {
-                                    ?>
-                                            <tr>
-                                                <td><?php echo $row['post_id']; ?></td>
-                                                <td><?php echo $row['post_title']; ?></td>
-                                                <td><?php echo $row['post_category']; ?></td>
-                                                <td><?php echo $row['post_author']; ?></td>
-                                                <td> <img src="../img/posts/<?php echo $row['post_image']; ?>" width="50px;"></td>
-                                                <td><?php echo $row['post_content']; ?></td>
-                                                <td><?php echo $row['post_comment_count']; ?></td>
-                                                <td><?php echo $row['post_views']; ?></td>
-                                                <td><?php echo $row['post_date']; ?></td>
-                                                <td><?php echo $row['post_status'];  ?></td>
-                                                <td>
-                                                    <form action="post_edit.php" method="POST">
-                                                        <input type="hidden" name="edit_id" value="<?php echo $row['post_id']; ?>">
-                                                        <button type="submit" name="edit_btn" class="btn btn-warning btn-circle">
-                                                            <i class="fas fa-pencil-alt"></i>
-                                                        </button>
-                                                    </form>
 
-                                                </td>
-                                                <td>
-                                                    <form action="functions.php" method="POST">
-                                                        <input type="hidden" name="delete_id" value="<?php echo $row['post_id']; ?>">
-                                                        <button type="submit" name="deleteBtn" class="btn btn-danger btn-circle">
-                                                            <i class="fas fa-trash"></i>
-                                                        </button>
-                                                    </form>
+                                            $post_id = $row['post_id'];
+                                            $post_title = $row['post_title'];
+                                            $post_category = $row['post_category'];
+                                            $post_author = $row['post_author'];
+                                            $post_image = $row['post_image'];
+                                            $post_content = $row['post_content'];
+                                            $post_category_id = $row['post_category_id'];
+                                            $post_status = $row['post_status'];
+                                            $post_tags = $row['post_tags'];
+                                            $post_comment_count = $row['post_comment_count'];
+                                            $post_date = $row['post_date'];
+                                            $post_view = $row['post_views'];
 
-                                                </td>
-                                            </tr>
-                                    <?php
+                                            echo "<tr>";
+
+                                            // echo "<td>$post_id</td>";
+                                            echo "<td>$post_title</td>";
+
+                                            $sql = "SELECT * FROM categories WHERE id = '$post_category_id'";
+                                            $select_categories_id = mysqli_query($conn, $sql);
+
+                                            while ($row = mysqli_fetch_assoc($select_categories_id)) {
+                                                $id = $row['id'];
+                                                $cat_title = $row['Category_Name'];
+                                                echo "<td>$cat_title</td>";
+                                            }
+
+                                            if (!empty($post_author)) {
+                                                echo "<td>$post_author</td>";
+                                            } else {
+                                                echo "<td>Unknown</td>";
+                                            }
+
+                                            echo "<td> <img src='../img/posts/{$post_image}' width='50px'></td>";
+
+
+                                            $query = "SELECT * FROM `comments` WHERE comment_post_id = '$post_id'";
+                                            $select_comment = mysqli_query($conn, $query);
+                                            if (mysqli_num_rows($select_comment) > 0) {
+                                                $row = mysqli_fetch_assoc($select_comment);
+                                                $comment_id = $row['comm_id'];
+                                                $count_comments = mysqli_num_rows($select_comment);
+                                                echo "<td><a href = 'comment.php?id=$post_id'>$count_comments</a></td>";
+                                            } else {
+                                                echo "<td>0</td>";
+                                            }
+
+
+                                            echo "<td>$post_view</td>";
+                                            echo "<td>$post_date</td>";
+                                            echo "<td>$post_status</td>";
+
+                                            echo "<td><a class='btn btn-warning btn-circle' href='edit_post.php?p_id={$post_id}'><i class='fas fa-pencil-alt'></i></a></td>";
+                                            echo "<td><a class='btn btn-danger btn-circle' href='post_list.php?delete=delete&p_id={$post_id}'> <i class='fas fa-trash'></i></a></td>";
+
+                                            echo "</tr>";
                                         }
                                     } else {
                                         echo "No Record Found!";
@@ -187,7 +207,34 @@ if (isset($_SESSION['username'])) {
                                 </tbody>
                             </table>
                         </div>
+                        <?php
+                        if (isset($_GET['delete'])) {
+                            $post_id = $_GET['p_id'];
+                            // delete query
+                            $delete_data = "DELETE FROM posts WHERE post_id='$post_id'";
+                            // query response
+                            $delete_response = mysqli_query($conn, $delete_data);
 
+                            if ($delete_response === true) {
+                                $_SESSION['success'] = "<div class='alert alert-success' role='alert'>
+                                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                        <strong><i class='fas fa-check-circle'></i></strong> Delete Successfully!
+                                    </div>";
+                                header("Location: post_list.php");
+                            } else {
+                                $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
+                                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                        <strong><i class='fas fa-exclamation-circle'></i></strong> Not Deleted!
+                                    </div>";
+                                header("Location: post_list.php");
+                            }
+                        }
+
+                        ?>
                     </div>
                 </div>
 
@@ -228,3 +275,5 @@ else {
             });
         }, 4000);
     </script>
+
+    <!--  -->
