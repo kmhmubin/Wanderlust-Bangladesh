@@ -69,6 +69,13 @@ if (isset($_SESSION['username'])) {
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" name="edit_password" value="<?php echo $row['Password']; ?>" id="exampleInputPassword" placeholder="Password">
                                     </div>
+                                    <div class="form-group">
+                                        <label>User Role</label>
+                                        <select name="updateUserRole" class=" form-control">
+                                            <option value="Admin">Admin</option>
+                                            <option value="Client">Client</option>
+                                        </select>
+                                    </div>
 
                                     <a href="admin_user.php" class="btn btn-danger">Cancel</a>
                                     <button type="submit" name="updateBtn" class="btn btn-primary">Update</button>

@@ -15,7 +15,7 @@ if (isset($_POST['loginBtn'])) {
     $password = htmlentities($password);
 
     // decrypt the password
-    $sql = "SELECT Password FROM users WHERE User_Name = '$username'";
+    $sql = "SELECT Password FROM users WHERE User_Name = '$username' AND role = 'Admin'";
     // database response
     $response = mysqli_query($conn, $sql);
     // selecting the specific row from database
@@ -38,5 +38,3 @@ if (isset($_POST['loginBtn'])) {
         header("Location: index.php");
     }
 }
-
-

@@ -60,6 +60,8 @@ if (isset($_SESSION['username'])) {
                                     </div>
                                 </div>
 
+                                <input type="hidden" class="form-control form-control-user" name="user_role" id="user_role" value="Admin">
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -162,6 +164,7 @@ if (isset($_SESSION['username'])) {
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Role</th>
                                         <th>UserName</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
@@ -173,6 +176,7 @@ if (isset($_SESSION['username'])) {
                                 <tfoot>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Role</th>
                                         <th>UserName</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
@@ -190,6 +194,7 @@ if (isset($_SESSION['username'])) {
 
                                             <tr>
                                                 <td><?php echo $row['id']; ?></td>
+                                                <td><?php echo $row['role']; ?></td>
                                                 <td><?php echo $row['User_Name']; ?></td>
                                                 <td><?php echo $row['First_Name']; ?></td>
                                                 <td><?php echo $row['Last_Name']; ?></td>

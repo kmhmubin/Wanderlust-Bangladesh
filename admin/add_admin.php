@@ -8,6 +8,7 @@ if (isset($_POST['registerBtn'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $repeatPassword = $_POST['repeatPassword'];
+    $user_role = $_POST['user_role'];
 
     // securing data from sql injection
     $fname = mysqli_real_escape_string($conn, $fname);
@@ -29,7 +30,7 @@ if (isset($_POST['registerBtn'])) {
         // encrypt the password
         $password = password_hash($password, PASSWORD_BCRYPT);
         // insert query in database
-        $insert_query = "INSERT INTO users(First_Name,Last_Name,User_Name,email,Password) VALUES ('$fname','$lname','$username','$email','$password')";
+        $insert_query = "INSERT INTO users(First_Name,Last_Name,User_Name,email,Password,role) VALUES ('$fname','$lname','$username','$email','$password','$user_role')";
 
         // query response
         $query_response = mysqli_query($conn, $insert_query);
@@ -72,6 +73,7 @@ if (isset($_POST['updateBtn'])) {
     $username = $_POST['edit_username'];
     $email = $_POST['edit_email'];
     $password = $_POST['edit_password'];
+    $user_role = $_POST['updateUserRole'];
 
     // securing data from sql injection
     $fname = mysqli_real_escape_string($conn, $fname);
@@ -89,7 +91,7 @@ if (isset($_POST['updateBtn'])) {
 
     $password = password_hash($password, PASSWORD_BCRYPT);
     // update query 
-    $update_data = "UPDATE users SET First_Name = '$fname', Last_Name = '$lname', User_Name = '$username', email = '$email', Password = '$password' WHERE id = '$id' ";
+    $update_data = "UPDATE users SET First_Name = '$fname', Last_Name = '$lname', User_Name = '$username', email = '$email', Password = '$password', role = '$user_role' WHERE id = '$id' ";
 
     // query response
     $update_response = mysqli_query($conn, $update_data);
@@ -143,4 +145,3 @@ if (isset($_POST['deleteBtn'])) {
         header("Location: admin_user.php");
     }
 }
-
