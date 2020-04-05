@@ -62,10 +62,9 @@ include "login/header-signin.php";
                     </div>
                 </div>
             </div>
+
         </div>
-
     </div>
-
     <div class="pt-3"></div>
 </div>
 

@@ -10,6 +10,12 @@ include "include/header.php";
 <?php
 if (isset($_SESSION['username'])) {
     // if username is true show those
+    $user = $_SESSION['username'];
+    $sql = mysqli_query($conn, "SELECT * FROM users WHERE username = '$user'");
+    $row = mysqli_fetch_assoc($sql);
+    $username = $row['username'];
+    $profile_pic = $row['profile_pic'];
+    $role = $row['role'];
 ?>
 
     <!-- Content Wrapper -->

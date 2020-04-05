@@ -1,40 +1,34 @@
 <?php
 include "include/header.php";
 
+$error = [];
 
 if (isset($_POST['loginBtn'])) {
+
     $username = $_POST['login_username'];
-    $password = $_POST['login_password'];
+    $pwd = $_POST['login_password'];
 
-    // securing from sql injection
-    $username = mysqli_real_escape_string($conn, $username);
-    $password = mysqli_real_escape_string($conn, $password);
 
-    // securing from cross site script attack
-    $username = htmlentities($username);
-    $password = htmlentities($password);
+    $sql = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
+    $row = mysqli_fetch_assoc($sql);
 
-    // decrypt the password
-    $sql = "SELECT Password FROM users WHERE User_Name = '$username' AND role = 'Admin'";
-    // database response
-    $response = mysqli_query($conn, $sql);
-    // selecting the specific row from database
-    $row = mysqli_fetch_assoc($response);
-    // assign the row from the database
-    $pass = $row['Password'];
-    // checking the user input with database value
-    if (password_verify($password, $pass)) {
-        // session for username 
+    $db_user = $row['username'];
+    $db_pwd = $row['password'];
+    $profile_pic = $row['profile_pic'];
+
+    $rehashpwd = md5($pwd);
+
+    if ($username == $db_user  && $db_pwd == $rehashpwd) {
         $_SESSION['username'] = $username;
-        // when true
+        $_SESSION['profile_pic'] = $profile_pic;
         header("Location: index.php");
     } else {
         $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-            <span aria-hidden='true'>&times;</span>
-            </button>
-            <strong><i class='fas fa-exclamation-circle'></i></strong> Username/ Password Not Match!
-            </div>";
-        header("Location: index.php");
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                        <strong><i class='fas fa-exclamation-circle'></i></strong> Post Not Updated!
+                    </div>";
+        header("Location: login.php");
     }
 }

@@ -7,6 +7,14 @@ include "include/sidenavbar.php";
 
 if (isset($_SESSION['username'])) {
   // if username is true show those
+  $user = $_SESSION['username'];
+  $sql = mysqli_query($conn, "SELECT * FROM users WHERE username = '$user'");
+  $row = mysqli_fetch_assoc($sql);
+  $username = $row['username'];
+  $profile_pic = $row['profile_pic'];
+  $role = $row['role'];
+
+
 ?>
 
 
@@ -391,11 +399,11 @@ if (isset($_SESSION['username'])) {
 else {
   // show error message as alert
   $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-            <span aria-hidden='true'>&times;</span>
-            </button>
-            <strong><i class='fas fa-exclamation-circle'></i></strong> Please Login !
-            </div>";
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+                </button>
+                <strong><i class='fas fa-exclamation-circle'></i></strong> Please Login !
+                </div>";
   header("Location: login.php");
 }
   ?>

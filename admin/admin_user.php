@@ -6,9 +6,14 @@ include "include/header.php";
 <!-- Sidebar -->
 <?php include "include/sidenavbar.php";
 
-
+// if username is true show those
 if (isset($_SESSION['username'])) {
-    // if username is true show those
+    $user = $_SESSION['username'];
+    $sql = mysqli_query($conn, "SELECT * FROM users WHERE username = '$user'");
+    $row = mysqli_fetch_assoc($sql);
+    $username = $row['username'];
+    $profile_pic = $row['profile_pic'];
+    $role = $row['role'];
 ?>
     <!-- End of Sidebar -->
 
@@ -36,32 +41,18 @@ if (isset($_SESSION['username'])) {
                         </div>
                         <form class="user" action="add_admin.php" method="POST">
                             <div class="modal-body">
-                                <!-- modal body start -->
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" name="fname" id="exampleInputFirstName" placeholder="First Name">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" name="lname" id="exampleInputLastName" placeholder="Last Name">
-                                    </div>
-                                </div>
+
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" name="username" id="exampleInputUserName" placeholder="User Name">
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail" placeholder="Email Address">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" name="repeatPassword" id="exampleRepeatPassword" placeholder="Repeat Password">
-                                    </div>
+                                <div class="form-group ">
+
+                                    <input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password">
+
                                 </div>
-
-                                <input type="hidden" class="form-control form-control-user" name="user_role" id="user_role" value="Admin">
-
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -166,9 +157,8 @@ if (isset($_SESSION['username'])) {
                                         <th>ID</th>
                                         <th>Role</th>
                                         <th>UserName</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
                                         <th>Email</th>
+
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -178,9 +168,8 @@ if (isset($_SESSION['username'])) {
                                         <th>ID</th>
                                         <th>Role</th>
                                         <th>UserName</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
                                         <th>Email</th>
+
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -195,10 +184,9 @@ if (isset($_SESSION['username'])) {
                                             <tr>
                                                 <td><?php echo $row['id']; ?></td>
                                                 <td><?php echo $row['role']; ?></td>
-                                                <td><?php echo $row['User_Name']; ?></td>
-                                                <td><?php echo $row['First_Name']; ?></td>
-                                                <td><?php echo $row['Last_Name']; ?></td>
+                                                <td><?php echo $row['username']; ?></td>
                                                 <td><?php echo $row['email']; ?></td>
+
                                                 <td>
                                                     <form action="admin_edit.php" method="POST">
                                                         <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">
@@ -251,11 +239,11 @@ if (isset($_SESSION['username'])) {
 else {
     // show error message as alert
     $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-            <span aria-hidden='true'>&times;</span>
-            </button>
-            <strong><i class='fas fa-exclamation-circle'></i></strong> Please Login !
-            </div>";
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+                </button>
+                <strong><i class='fas fa-exclamation-circle'></i></strong> Please Login !
+                </div>";
     header("Location: login.php");
 }
     ?>

@@ -1,4 +1,4 @@
-<?php include "include/header.php"; ?>
+<!-- <?php include "include/header.php"; ?> -->
 
 
 <div class="container">
@@ -36,7 +36,8 @@
 
                 <form class="user" action="login_check.php" method="POST">
                   <div class="form-group">
-                    <input type="text" name="login_username" class="form-control form-control-user" id="exampleInputUserName" placeholder="User Name">
+                    <input type="tex
+                    t" name="login_username" class="form-control form-control-user" id="exampleInputUserName" placeholder="User Name">
                   </div>
                   <div class="form-group">
                     <input type="password" name="login_password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
