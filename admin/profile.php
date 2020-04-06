@@ -5,25 +5,19 @@ include "include/sidenavbar.php";
 
 <?php
 if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
-    $query = "SELECT * FROM users WHERE User_Name = '$username'";
-    $select_user_profile_info = mysqli_query($conn, $query);
-
-    while ($row = mysqli_fetch_assoc($select_user_profile_info)) {
-        $user_id = $row['id'];
-        $user_name = $row['User_Name'];
-        $fname = $row['First_Name'];
-        $lname = $row['Last_Name'];
-        $user_email = $row['email'];
-        $user_image = $row['profile_image'];
-        $user_bio = $row['bio'];
-        $user_gender = $row['gender'];
-        $user_fb = $row['fb'];
-        $user_tw = $row['tw'];
-        $user_ig = $row['ig'];
-        $user_joining_year = $row['join_year'];
-        $user_post = $row['post_id'];
-    }
+    // if username is true show those
+    $user = $_SESSION['username'];
+    $sql = mysqli_query($conn, "SELECT * FROM users WHERE username = '$user'");
+    $row = mysqli_fetch_assoc($sql);
+    $username = $row['username'];
+    $profile_pic = $row['profile_pic'];
+    $role = $row['role'];
+    $email = $row['email'];
+    $join_date = $row['join_date'];
+    $fname = $row['first_name'];
+    $lname = $row['last_name'];
+    $gender = $row['gender'];
+    $bio = $row['bio'];
 }
 
 ?>
@@ -69,12 +63,10 @@ if (isset($_SESSION['username'])) {
                                 <!-- Card Header - Accordion -->
                                 <div>
                                     <!-- Card Content - Collapse -->
-                                    <img class="card-img-top" src='../img/user/<?php echo $user_image; ?>' alt="Card image">
+                                    <img class="card-img-top" src='<?php echo $row['profile_pic'];  ?>' alt="Card image">
+                                    <hr>
                                     <div class="card-body">
                                         <h2 class="text-center"><?php echo ucfirst($username); ?></h2>
-                                        <div>
-                                            <hr>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +86,7 @@ if (isset($_SESSION['username'])) {
                                             <tbody>
                                                 <tr>
                                                     <td>User Name</td>
-                                                    <td><?php echo ucfirst($user_name); ?></td>
+                                                    <td><?php echo ucfirst($username); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>First Name</td>
@@ -106,20 +98,20 @@ if (isset($_SESSION['username'])) {
                                                 </tr>
                                                 <tr>
                                                     <td>Email</td>
-                                                    <td><?php echo "{$user_email}"; ?></td>
+                                                    <td><?php echo "{$email}"; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Gender</td>
-                                                    <td><?php echo "{$user_gender}"; ?></td>
+                                                    <td><?php echo "{$gender}"; ?></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>Join Year</td>
-                                                    <td><?php echo "{$user_joining_year}"; ?></td>
+                                                    <td><?php echo "{$join_date}"; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Bio</td>
-                                                    <td><?php echo "{$user_bio}"; ?></td>
+                                                    <td><?php echo "{$bio}"; ?></td>
                                                 </tr>
 
                                             </tbody>

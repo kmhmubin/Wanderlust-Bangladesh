@@ -8,33 +8,27 @@ include "include/header.php";
 
 
 if (isset($_SESSION['username'])) {
+
     // if username is true show those
+    $user = $_SESSION['username'];
+    $sql = mysqli_query($conn, "SELECT * FROM users WHERE username = '$user'");
+    $row = mysqli_fetch_assoc($sql);
+    $username = $row['username'];
+    $profile_pic = $row['profile_pic'];
+    $role = $row['role'];
+    $email = $row['email'];
+    $join_date = $row['join_date'];
+    $fname = $row['first_name'];
+    $lname = $row['last_name'];
+    $gender = $row['gender'];
+    $bio = $row['bio'];
+    $pass = $row['password'];
+
+
 ?>
 
     <!-- End of Sidebar -->
     <?php
-    if (isset($_SESSION['username'])) {
-        $username = $_SESSION['username'];
-        $query = "SELECT * FROM users WHERE User_Name = '$username'";
-        $select_user_profile_info = mysqli_query($conn, $query);
-
-        while ($row = mysqli_fetch_assoc($select_user_profile_info)) {
-            $user_id = $row['id'];
-            $user_name = $row['User_Name'];
-            $fname = $row['First_Name'];
-            $lname = $row['Last_Name'];
-            $user_email = $row['email'];
-            $user_password = $row['Password'];
-            $user_image = $row['profile_image'];
-            $user_bio = $row['bio'];
-            $user_gender = $row['gender'];
-            $user_fb = $row['fb'];
-            $user_tw = $row['tw'];
-            $user_ig = $row['ig'];
-            $user_joining_year = $row['join_year'];
-            $user_post = $row['post_id'];
-        }
-    }
 
     function escape($string)
     {
@@ -70,33 +64,30 @@ if (isset($_SESSION['username'])) {
                     <?php
                     if (isset($_POST['edit_user'])) {
                         $username = escape($_POST['username']);
+                        $edit_username = escape($_POST['edit_username']);
                         $edit_fname = escape($_POST['edit_fname']);
                         $edit_lname = escape($_POST['edit_lname']);
                         $edit_email = escape($_POST['edit_email']);
-                        $edit_password = escape($_POST['edit_password']);
-                        $password = password_hash($edit_password, PASSWORD_BCRYPT);
+
                         $edit_gender = escape($_POST['gender']);
                         $edit_bio = escape($_POST['bio']);
-                        $edit_fb = escape($_POST['facebook']);
-                        $edit_tw = escape($_POST['twitter']);
-                        $edit_ig = escape($_POST['instagram']);
 
-                        $edit_user_image = escape($_FILES['image']['name']);
-                        $edit_image_temp = escape($_FILES['image']['tmp_name']);
+                        // $edit_user_image = escape($_FILES['image']['name']);
+                        // $edit_image_temp = escape($_FILES['image']['tmp_name']);
 
-                        move_uploaded_file($edit_image_temp, "../img/user/$edit_user_image");
+                        // move_uploaded_file($edit_image_temp, "../img/user/$edit_user_image");
 
-                        if (empty($edit_user_image)) {
-                            $sql = "SELECT * FROM users WHERE id = '$user_id'";
-                            $select_image = mysqli_query($conn, $sql);
-                            while ($row = mysqli_fetch_assoc($select_image)) {
-                                $edit_user_image = $row['profile_image'];
-                            }
-                        }
+                        // if (empty($edit_user_image)) {
+                        //     $sql = "SELECT * FROM users WHERE id = '$user_id'";
+                        //     $select_image = mysqli_query($conn, $sql);
+                        //     while ($row = mysqli_fetch_assoc($select_image)) {
+                        //         $edit_user_image = $row['profile_image'];
+                        //     }
+                        // }
 
                         // update profile info
 
-                        $update_profile = "UPDATE users SET First_Name = '$edit_fname', Last_Name ='$edit_lname', email = '$edit_email',Password = '$password', gender = '$edit_gender',profile_image = '$edit_user_image', bio = '$edit_bio', fb = '$edit_fb', tw = '$edit_tw', ig = '$edit_ig' WHERE id = '$user_id'";
+                        $update_profile = "UPDATE users SET username = '$edit_username' ,first_name = '$edit_fname', last_name ='$edit_lname', email = '$edit_email', gender = '$edit_gender', bio = '$edit_bio' WHERE username = '$user'";
 
                         $update_profile_response = mysqli_query($conn, $update_profile);
 
@@ -127,7 +118,9 @@ if (isset($_SESSION['username'])) {
 
                         <form action="" method="POST" enctype="multipart/form-data">
                             <!-- edit form -->
-                            <input type="hidden" name="edit_id" value="">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" name="edit_username" value="<?php echo $username; ?>" id="exampleUserName" placeholder="User Name">
+                            </div>
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user" name="edit_fname" value="<?php echo $fname; ?>" id="exampleFirstName" placeholder="First Name">
                             </div>
@@ -136,15 +129,15 @@ if (isset($_SESSION['username'])) {
                             </div>
 
                             <div class="form-group">
-                                <input type="email" class="form-control form-control-user" name="edit_email" value="<?php echo $user_email; ?>" id="exampleInputEmail" placeholder="Email Address">
+                                <input type="email" class="form-control form-control-user" name="edit_email" value="<?php echo $email; ?>" id="exampleInputEmail" placeholder="Email Address">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control form-control-user" name="edit_password" value="<?php echo $user_password; ?>" id="exampleInputPassword" placeholder="Password">
+                                <input type="password" class="form-control form-control-user" name="edit_password" value="<?php echo $pass; ?>" id="exampleInputPassword" placeholder="Password">
                             </div>
                             <div class="form-group">
-                                <input type="file" class="form-control form-control-user" name="image" value="<?php echo $user_image; ?>">
+                                <input type="file" class="form-control form-control-user" name="image" value="<?php echo $profile_pic; ?>">
                                 <div class="p-1">
-                                    <img src="../img/user/<?php echo $user_image; ?>" alt="" width="100px">
+                                    <img src="<?php echo $profile_pic; ?>" alt="" width="100px">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -154,17 +147,9 @@ if (isset($_SESSION['username'])) {
                                     <option value="Female">Female</option>
                                 </select>
                             </div>
+
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" name="facebook" value="<?php echo $user_fb; ?>" placeholder="Facebook Profile">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" name="twitter" value="<?php echo $user_tw; ?>" placeholder="Twitter Profile">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" name="instagram" value="<?php echo $user_ig; ?>" placeholder="Instagram Profile">
-                            </div>
-                            <div class="form-group">
-                                <textarea name="bio" class="form-control" id="bio" cols="" rows="5" placeholder="Add Bio"><?php echo $user_bio; ?> </textarea>
+                                <textarea name="bio" class="form-control" id="bio" cols="" rows="5" placeholder="Add Bio"><?php echo $bio; ?> </textarea>
                             </div>
 
 
@@ -177,7 +162,6 @@ if (isset($_SESSION['username'])) {
 
 
                     </div>
-
 
 
 
