@@ -55,7 +55,6 @@ if (isset($_SESSION['username'])) {
                 <!-- Page Heading -->
                 <h1 class="h3 mb-2 text-gray-800">Edit Admin Profile</h1>
 
-
                 <div class="card shadow mb-4">
                     <div class="card-header py-2">
                         <h6 class="m-0 font-weight-bold text-primary">Profile Edit Form</h6>
@@ -72,18 +71,33 @@ if (isset($_SESSION['username'])) {
                         $edit_gender = escape($_POST['gender']);
                         $edit_bio = escape($_POST['bio']);
 
-                        // $edit_user_image = escape($_FILES['image']['name']);
-                        // $edit_image_temp = escape($_FILES['image']['tmp_name']);
+                        // update password
 
-                        // move_uploaded_file($edit_image_temp, "../img/user/$edit_user_image");
+                        $oldPwd = $_POST['old_password'];
+                        $newPwd = $_POST['new_password'];
 
-                        // if (empty($edit_user_image)) {
-                        //     $sql = "SELECT * FROM users WHERE id = '$user_id'";
-                        //     $select_image = mysqli_query($conn, $sql);
-                        //     while ($row = mysqli_fetch_assoc($select_image)) {
-                        //         $edit_user_image = $row['profile_image'];
-                        //     }
-                        // }
+                        $pwdFromDB = $pass;
+                        $hashPwd = md5($oldPwd);
+                        if ($pwdFromDB == $hashPwd) {
+                            $newHashPwd = md5($newPwd);
+                            $updatePass = mysqli_query($conn, "UPDATE users SET password = '$newHashPwd' WHERE username = '$user'");
+                        }
+
+                        // update image
+                        if (isset($_FILES['image']) && $_FILES['image']['name'] != "") {
+                            $dir = "../img/user/";
+                            $filename = $_FILES['image']['name'];
+                            $fileTmpName = $_FILES['image']['tmp_name'];
+                            $fileExt = explode('.', $filename);
+                            $fileActExt = strtolower(end($fileExt));
+
+                            $newImage = uniqid("wbd", true) . "." . $fileActExt;
+                            $target = $dir . basename($newImage);
+                            move_uploaded_file($fileTmpName, $target);
+                            $query = mysqli_query($conn, "UPDATE users SET profile_pic = '$target' WHERE username = '$user'");
+                        }
+
+
 
                         // update profile info
 
@@ -132,7 +146,11 @@ if (isset($_SESSION['username'])) {
                                 <input type="email" class="form-control form-control-user" name="edit_email" value="<?php echo $email; ?>" id="exampleInputEmail" placeholder="Email Address">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control form-control-user" name="edit_password" value="<?php echo $pass; ?>" id="exampleInputPassword" placeholder="Password">
+                                <input type="password" class="form-control form-control-user" name="old_password" value="" id="#oldPwd" placeholder="Old Password">
+                                <p id="check" style="font-size: 11px"></p>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control form-control-user" name="new_password" value="" id="exampleInputPassword" placeholder="New Password">
                             </div>
                             <div class="form-group">
                                 <input type="file" class="form-control form-control-user" name="image" value="<?php echo $profile_pic; ?>">
@@ -159,8 +177,6 @@ if (isset($_SESSION['username'])) {
 
 
 
-
-
                     </div>
 
 
@@ -170,6 +186,7 @@ if (isset($_SESSION['username'])) {
 
                 </div>
             </div>
+
 
             <?php include "include/footer.php"; ?>
 
