@@ -222,3 +222,67 @@ if (isset($_POST['deleteBtn'])) {
         header("Location: comment.php");
     }
 }
+
+//  securing data from sql injection and cross site scripts
+function clean($data)
+{
+    // securing data from all harm
+    global $conn;
+    $data = htmlspecialchars($data);
+    $data = mysqli_real_escape_string($conn, $data);
+    $data = stripslashes($data);
+    $data = strip_tags($data);
+    return $data;
+}
+
+//  add destinations page functions
+
+function add_dest()
+{
+    global $conn;
+
+    if (isset($_POST['dest'])) {
+        $dest_title = escape($_POST['title']);
+        $dest_author = escape($_POST['author']);
+        $dest_city = escape($_POST['city']);
+        $dest_content = escape($_POST['content']);
+        $dest_tags = escape($_POST['tags']);
+        $dest_status = escape($_POST['status']);
+        // get the city id
+        $get_city = mysqli_query($conn, "SELECT city_id FROM cities WHERE city_name = '$dest_city' ");
+        $row = mysqli_fetch_assoc($get_city);
+        $dest_city_id = $row['city_id'];
+        $dest_views = 0;
+
+        //    image upload 
+        $dest_image = $_FILES['image'];
+        $image_name = $_FILES['image']['name'];
+        $tmp_dir = $_FILES['image']['tmp_name'];
+        move_uploaded_file($tmp_dir, "../img/dest/" . $image_name);
+
+
+        $dest_insert = "INSERT INTO destinations(dest_id, dest_title, dest_city, dest_city_id, dest_author, dest_content, dest_image, dest_views, dest_tags, dest_status) VALUES('','$dest_title','$dest_city','$dest_city_id','$dest_author','$dest_content','$image_name','$dest_views','$dest_tags','$dest_status')";
+
+        $dest_response = mysqli_query($conn, $dest_insert);
+
+        if ($dest_response) {
+            $_SESSION['success'] = "<div class='alert alert-success' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-check-circle'></i></strong> Destination Added Successfully!
+            </div>";
+            header("Location: destination_list.php");
+        } else {
+            $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-exclamation-circle'></i></strong> Destination Not Added!
+            </div>";
+            header("Location: destination_list.php");
+        }
+    }
+}
+
+add_dest();

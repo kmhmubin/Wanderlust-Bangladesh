@@ -6,8 +6,10 @@ include "include/header.php";
 <!-- Sidebar -->
 <?php include "include/sidenavbar.php";
 
-// if username is true show those
+
+
 if (isset($_SESSION['username'])) {
+    // if username is true show those
     $user = $_SESSION['username'];
     $sql = mysqli_query($conn, "SELECT * FROM users WHERE username = '$user'");
     $row = mysqli_fetch_assoc($sql);
@@ -27,42 +29,6 @@ if (isset($_SESSION['username'])) {
             <?php include "include/topnavbar.php";  ?>
             <!-- End of Topbar -->
 
-            <!-- Add admin modal form -->
-
-            <!-- Modal -->
-            <div class="modal fade" id="addAdminProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add Destination Info</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <form class="user" action="add_admin.php" method="POST">
-                            <div class="modal-body">
-
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" name="username" id="exampleInputUserName" placeholder="User Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail" placeholder="Email Address">
-                                </div>
-                                <div class="form-group ">
-
-                                    <input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password">
-
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary" name="registerBtn">Add</button>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
@@ -73,19 +39,19 @@ if (isset($_SESSION['username'])) {
                 <h1 class="h3 mb-2 text-gray-800">Destination Board</h1>
 
                 <div class="row">
-                    <!-- Add admin Card Example -->
+                    <!-- Add post Card Example -->
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">Add Destination</div>
-                                        <button class="btn btn-success btn-icon-split" type="button" data-toggle="modal" data-target="#addAdminProfile">
+                                        <a class="btn btn-success btn-icon-split" type="button" href="add_dest.php">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-umbrella-beach"></i>
                                             </span>
                                             <span class="text">Add Destination</span>
-                                        </button>
+                                        </a>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-umbrella-beach fa-2x text-gray-300"></i>
@@ -95,19 +61,19 @@ if (isset($_SESSION['username'])) {
                         </div>
                     </div>
 
-                    <!-- Admin Users total Card Example -->
+                    <!--  total post Card Example -->
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-warning shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">Destinations</div>
+                                        <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">Destinations </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <!-- total user number fetch from register table -->
                                             <?php
 
-                                            $totalUserCount = "SELECT id FROM users ORDER BY id";
-                                            $Count_response = mysqli_query($conn, $totalUserCount);
+                                            $totalDestinationCount = "SELECT dest_id FROM destinations ORDER BY dest_id";
+                                            $Count_response = mysqli_query($conn, $totalDestinationCount);
                                             // store row numbers in a variable
                                             $row = mysqli_num_rows($Count_response);
                                             echo $row;
@@ -145,68 +111,88 @@ if (isset($_SESSION['username'])) {
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-
-                            <!-- Fetching data from database in the table -->
-                            <?php
-                            $show_data = "SELECT * FROM users";
-                            $query_response = mysqli_query($conn, $show_data);
-                            ?>
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Role</th>
-                                        <th>UserName</th>
-                                        <th>Email</th>
+                                        <!-- <th>ID</th> -->
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Author</th>
+                                        <th>Image</th>
 
+                                        <th>Views</th>
+                                        <th>Data</th>
+                                        <th>Status</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Role</th>
-                                        <th>UserName</th>
-                                        <th>Email</th>
+                                        <!-- <th>ID</th> -->
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Author</th>
+                                        <th>Image</th>
 
+                                        <th>Views</th>
+                                        <th>Data</th>
+                                        <th>Status</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
-
                                     <?php
+                                    $show_data = "SELECT * FROM destinations ORDER BY dest_id DESC";
+                                    $query_response = mysqli_query($conn, $show_data);
                                     if (mysqli_num_rows($query_response) > 0) {
                                         while ($row = mysqli_fetch_assoc($query_response)) {
-                                    ?>
 
-                                            <tr>
-                                                <td><?php echo $row['id']; ?></td>
-                                                <td><?php echo $row['role']; ?></td>
-                                                <td><?php echo $row['username']; ?></td>
-                                                <td><?php echo $row['email']; ?></td>
+                                            $dest_id = $row['dest_id'];
+                                            $dest_title = $row['dest_title'];
+                                            $dest_city = $row['dest_city'];
+                                            $dest_author = $row['dest_author'];
+                                            $dest_image = $row['dest_image'];
+                                            $dest_content = $row['dest_content'];
+                                            $dest_city_id = $row['dest_city_id'];
+                                            $dest_status = $row['dest_status'];
+                                            $dest_tags = $row['dest_tags'];
+                                            $dest_date = $row['dest_date'];
+                                            $dest_view = $row['dest_views'];
 
-                                                <td>
-                                                    <form action="admin_edit.php" method="POST">
-                                                        <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">
-                                                        <button type="submit" name="edit_btn" class="btn btn-warning btn-circle">
-                                                            <i class="fas fa-pencil-alt"></i>
-                                                        </button>
-                                                    </form>
+                                            echo "<tr>";
 
-                                                </td>
-                                                <td>
-                                                    <form action="add_admin.php" method="POST">
-                                                        <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-                                                        <button type="submit" name="deleteBtn" class="btn btn-danger btn-circle">
-                                                            <i class="fas fa-trash"></i>
-                                                        </button>
-                                                    </form>
+                                            // echo "<td>$post_id</td>";
+                                            echo "<td>$dest_title</td>";
 
-                                                </td>
-                                            </tr>
-                                    <?php
+                                            $sql = "SELECT * FROM cities WHERE city_id = '$dest_city_id'";
+                                            $select_city_id = mysqli_query($conn, $sql);
+
+                                            while ($row = mysqli_fetch_assoc($select_city_id)) {
+                                                $id = $row['city_id'];
+                                                $city_title = $row['city_name'];
+                                                echo "<td>$city_title</td>";
+                                            }
+
+                                            if (!empty($dest_author)) {
+                                                echo "<td>$dest_author</td>";
+                                            } else {
+                                                echo "<td>Unknown</td>";
+                                            }
+
+                                            echo "<td> <img src='../img/dest/{$dest_image}' width='50px'></td>";
+
+
+
+                                            echo "<td>$dest_view</td>";
+                                            echo "<td>$dest_date</td>";
+                                            echo "<td>$dest_status</td>";
+
+                                            echo "<td><a class='btn btn-warning btn-circle' href='edit_dest.php?dest_id={$dest_id}'><i class='fas fa-pencil-alt'></i></a></td>";
+                                            echo "<td><a class='btn btn-danger btn-circle' href='destination_list.php?delete=delete&dest_id={$dest_id}'> <i class='fas fa-trash'></i></a></td>";
+
+                                            echo "</tr>";
                                         }
                                     } else {
                                         echo "No Record Found!";
@@ -215,6 +201,34 @@ if (isset($_SESSION['username'])) {
                                 </tbody>
                             </table>
                         </div>
+                        <?php
+                        if (isset($_GET['delete'])) {
+                            $post_id = $_GET['dest_id'];
+                            // delete query
+                            $delete_data = "DELETE FROM destinations WHERE dest_id='$dest_id'";
+                            // query response
+                            $delete_response = mysqli_query($conn, $delete_data);
+
+                            if ($delete_response === true) {
+                                $_SESSION['success'] = "<div class='alert alert-success' role='alert'>
+                                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                        <strong><i class='fas fa-check-circle'></i></strong> Delete Successfully!
+                                    </div>";
+                                header("Location: destination_list.php");
+                            } else {
+                                $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
+                                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                        <strong><i class='fas fa-exclamation-circle'></i></strong> Not Deleted!
+                                    </div>";
+                                header("Location: destination_list.php");
+                            }
+                        }
+
+                        ?>
                     </div>
                 </div>
 
@@ -239,11 +253,11 @@ if (isset($_SESSION['username'])) {
 else {
     // show error message as alert
     $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
-                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                <span aria-hidden='true'>&times;</span>
-                </button>
-                <strong><i class='fas fa-exclamation-circle'></i></strong> Please Login !
-                </div>";
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-exclamation-circle'></i></strong> Please Login !
+            </div>";
     header("Location: login.php");
 }
     ?>
@@ -255,3 +269,5 @@ else {
             });
         }, 4000);
     </script>
+
+    <!--  -->

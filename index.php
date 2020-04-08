@@ -27,6 +27,7 @@ require_once "inc/navbar.php";
     <?php include "home/f-destination.php"; ?>
 
 
+
     <!-- latest blog posts -->
     <?php include "home/latest-blog.php"; ?>
 
