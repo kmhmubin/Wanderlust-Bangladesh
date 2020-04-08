@@ -43,17 +43,9 @@
         </li>
         <!-- Nav Item - Destination Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link" href="destination_list.php">
                 <i class="fas fa-umbrella-beach"></i>
-                <span>Destination</span>
-            </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Destination Options:</h6>
-                    <a class="collapse-item" href="add_hotel.php">Add Destination</a>
-                    <a class="collapse-item" href="hotel_list.php">Destination list</a>
-                </div>
-            </div>
+                <span>Destinations</span></a>
         </li>
 
 

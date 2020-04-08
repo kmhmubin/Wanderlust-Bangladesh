@@ -48,13 +48,13 @@ if (isset($_SESSION['username'])) {
                                         <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">Add Post</div>
                                         <a class="btn btn-success btn-icon-split" type="button" href="add_post.php">
                                             <span class="icon text-white-50">
-                                                <i class="fas fa-user-plus"></i>
+                                                <i class="fas fa-newspaper"></i>
                                             </span>
                                             <span class="text">Add Post</span>
                                         </a>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                                        <i class="fas fa-newspaper fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@ if (isset($_SESSION['username'])) {
                                         </div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                                        <i class="fas fa-newspaper fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
