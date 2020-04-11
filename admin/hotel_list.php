@@ -36,7 +36,7 @@ if (isset($_SESSION['username'])) {
 
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Destination Board</h1>
+                <h1 class="h3 mb-2 text-gray-800">Hotel Board</h1>
 
                 <div class="row">
                     <!-- Add post Card Example -->
@@ -45,16 +45,16 @@ if (isset($_SESSION['username'])) {
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">Add Destination</div>
-                                        <a class="btn btn-success btn-icon-split" type="button" href="add_dest.php">
+                                        <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">Add Hotel</div>
+                                        <a class="btn btn-success btn-icon-split" type="button" href="add_hotel.php">
                                             <span class="icon text-white-50">
-                                                <i class="fas fa-umbrella-beach"></i>
+                                                <i class="fas fa-hotel"></i>
                                             </span>
-                                            <span class="text">Add Destination</span>
+                                            <span class="text">Add Hotel</span>
                                         </a>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-umbrella-beach fa-2x text-gray-300"></i>
+                                        <i class="fas fa-hotel fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
@@ -67,12 +67,12 @@ if (isset($_SESSION['username'])) {
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">Destinations </div>
+                                        <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">Hotels </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <!-- total user number fetch from register table -->
                                             <?php
 
-                                            $totalDestinationCount = "SELECT dest_id FROM destinations ORDER BY dest_id";
+                                            $totalDestinationCount = "SELECT hotel_id FROM hotels ORDER BY hotel_id";
                                             $Count_response = mysqli_query($conn, $totalDestinationCount);
                                             // store row numbers in a variable
                                             $row = mysqli_num_rows($Count_response);
@@ -83,7 +83,7 @@ if (isset($_SESSION['username'])) {
                                         </div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-umbrella-beach fa-2x text-gray-300"></i>
+                                        <i class="fas fa-hotel fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
@@ -144,29 +144,29 @@ if (isset($_SESSION['username'])) {
                                 </tfoot>
                                 <tbody>
                                     <?php
-                                    $show_data = "SELECT * FROM destinations ORDER BY dest_id DESC";
+                                    $show_data = "SELECT * FROM hotels ORDER BY hotel_id DESC";
                                     $query_response = mysqli_query($conn, $show_data);
                                     if (mysqli_num_rows($query_response) > 0) {
                                         while ($row = mysqli_fetch_assoc($query_response)) {
 
-                                            $dest_id = $row['dest_id'];
-                                            $dest_title = $row['dest_title'];
-                                            $dest_city = $row['dest_city'];
-                                            $dest_author = $row['dest_author'];
-                                            $dest_image = $row['dest_image'];
-                                            $dest_content = $row['dest_content'];
-                                            $dest_city_id = $row['dest_city_id'];
-                                            $dest_status = $row['dest_status'];
-                                            $dest_tags = $row['dest_tags'];
-                                            $dest_date = $row['dest_date'];
-                                            $dest_view = $row['dest_views'];
+                                            $hotel_id = $row['hotel_id'];
+                                            $hotel_name = $row['hotel_name'];
+                                            $hotel_city = $row['hotel_city'];
+                                            $hotel_author = $row['author'];
+                                            $hotel_image = $row['hotel_pic'];
+                                            $hotel_content = $row['hotel_info'];
+                                            $hotel_city_id = $row['hotel_city_id'];
+                                            $hotel_status = $row['hotel_status'];
+                                            $hotel_tags = $row['hotel_tags'];
+                                            $hotel_date = $row['add_date'];
+                                            $hotel_view = $row['hotel_views'];
 
                                             echo "<tr>";
 
-                                            // echo "<td>$post_id</td>";
-                                            echo "<td>$dest_title</td>";
 
-                                            $sql = "SELECT * FROM cities WHERE city_id = '$dest_city_id'";
+                                            echo "<td>$hotel_name</td>";
+
+                                            $sql = "SELECT * FROM cities WHERE city_id = '$hotel_city_id'";
                                             $select_city_id = mysqli_query($conn, $sql);
 
                                             while ($row = mysqli_fetch_assoc($select_city_id)) {
@@ -175,22 +175,22 @@ if (isset($_SESSION['username'])) {
                                                 echo "<td>$city_title</td>";
                                             }
 
-                                            if (!empty($dest_author)) {
-                                                echo "<td>$dest_author</td>";
+                                            if (!empty($hotel_author)) {
+                                                echo "<td>$hotel_author</td>";
                                             } else {
                                                 echo "<td>Unknown</td>";
                                             }
 
-                                            echo "<td> <img src='../img/dest/{$dest_image}' width='50px'></td>";
+                                            echo "<td> <img src='../img/hotel/{$hotel_image}' width='50px'></td>";
 
 
 
-                                            echo "<td>$dest_view</td>";
-                                            echo "<td>$dest_date</td>";
-                                            echo "<td>$dest_status</td>";
+                                            echo "<td>$hotel_view</td>";
+                                            echo "<td>$hotel_date</td>";
+                                            echo "<td>$hotel_status</td>";
 
-                                            echo "<td><a class='btn btn-warning btn-circle' href='edit_dest.php?dest_id={$dest_id}'><i class='fas fa-pencil-alt'></i></a></td>";
-                                            echo "<td><a class='btn btn-danger btn-circle' href='destination_list.php?delete=delete&dest_id={$dest_id}'> <i class='fas fa-trash'></i></a></td>";
+                                            echo "<td><a class='btn btn-warning btn-circle' href='edit_hotel.php?hotel_id={$hotel_id}'><i class='fas fa-pencil-alt'></i></a></td>";
+                                            echo "<td><a class='btn btn-danger btn-circle' href='destination_list.php?delete=delete&hotel_id={$hotel_id}'> <i class='fas fa-trash'></i></a></td>";
 
                                             echo "</tr>";
                                         }
@@ -203,9 +203,9 @@ if (isset($_SESSION['username'])) {
                         </div>
                         <?php
                         if (isset($_GET['delete'])) {
-                            $post_id = $_GET['dest_id'];
+                            $post_id = $_GET['$hotel_id'];
                             // delete query
-                            $delete_data = "DELETE FROM destinations WHERE dest_id='$dest_id'";
+                            $delete_data = "DELETE FROM hotels WHERE hotel_id='$hotel_id'";
                             // query response
                             $delete_response = mysqli_query($conn, $delete_data);
 
@@ -216,7 +216,7 @@ if (isset($_SESSION['username'])) {
                                         </button>
                                         <strong><i class='fas fa-check-circle'></i></strong> Delete Successfully!
                                     </div>";
-                                header("Location: destination_list.php");
+                                header("Location: hotel_list.php");
                             } else {
                                 $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
                                         <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
@@ -224,7 +224,7 @@ if (isset($_SESSION['username'])) {
                                         </button>
                                         <strong><i class='fas fa-exclamation-circle'></i></strong> Not Deleted!
                                     </div>";
-                                header("Location: destination_list.php");
+                                header("Location: hotel_list.php");
                             }
                         }
 

@@ -2,14 +2,18 @@
    <div class="sidebar-box">
        <h3 class="heading">Cities</h3>
        <ul class="categories">
-           <li><a href="#">Dhaka </a></li>
-           <li><a href="#">Khulna </a></li>
-           <li><a href="#">Sylhet </a></li>
-           <li><a href="#">Rajshahi </a></li>
-           <li><a href="#">Rangpur </a></li>
-           <li><a href="#">Mymensingh </a></li>
-           <li><a href="#">Chittagong </a></li>
-           <li><a href="#">Barisal </a></li>
+           <?php
+            $city_grab = "SELECT * FROM cities";
+            $cat_response = mysqli_query($conn, $city_grab);
+            while ($row = mysqli_fetch_assoc($cat_response)) {
+                $cat_id = $row['city_id'];
+                $cat_title = $row['city_name'];
+                $sql = mysqli_query($conn, "SELECT * FROM hotels WHERE hotel_city_id = $cat_id");
+                $span = mysqli_num_rows($sql);
+                echo " <li><a href=''> $cat_title</a></li>";
+            }
+
+            ?>
 
        </ul>
    </div>

@@ -51,20 +51,13 @@
 
         <!-- Nav Item - Hotels Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link" href="hotel_list.php">
                 <i class="fas fa-hotel"></i>
-                <span>Hotels</span>
-            </a>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Hotels Options:</h6>
-                    <a class="collapse-item" href="add_hotel.php">Add Hotel</a>
-                    <a class="collapse-item" href="hotel_list.php">Hotel list</a>
-                </div>
-            </div>
+                <span>Hotels</span></a>
         </li>
 
-        <!-- Nav Item - Hotels Menu -->
+
+        <!-- Nav Item - User Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-users"></i>

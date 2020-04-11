@@ -71,7 +71,18 @@ if (isset($_SESSION['username'])) {
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Hotels</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">200</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      <!-- total user number fetch from register table -->
+                      <?php
+
+                      $totalDestinationCount = "SELECT hotel_id FROM hotels ORDER BY hotel_id";
+                      $Count_response = mysqli_query($conn, $totalDestinationCount);
+                      // store row numbers in a variable
+                      $row = mysqli_num_rows($Count_response);
+                      echo $row;
+
+                      ?>
+                    </div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-hotel fa-2x text-gray-300"></i>
@@ -88,7 +99,18 @@ if (isset($_SESSION['username'])) {
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Destination</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">200</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      <!-- total user number fetch from register table -->
+                      <?php
+
+                      $totalDestinationCount = "SELECT dest_id FROM destinations ORDER BY dest_id";
+                      $Count_response = mysqli_query($conn, $totalDestinationCount);
+                      // store row numbers in a variable
+                      $row = mysqli_num_rows($Count_response);
+                      echo $row;
+
+                      ?>
+                    </div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-umbrella-beach fa-2x text-gray-300"></i>

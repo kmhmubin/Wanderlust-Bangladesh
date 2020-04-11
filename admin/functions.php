@@ -286,3 +286,61 @@ function add_dest()
 }
 
 add_dest();
+
+
+// Hotel Add Function
+
+function hotelAdd()
+{
+    global $conn;
+    if (isset($_POST['hotel_add'])) {
+        $hotel_name = escape($_POST['hotel_name']);
+        $hotel_author = escape($_POST['author']);
+        $hotel_city = escape($_POST['city']);
+        $hotel_content = escape($_POST['content']);
+        $hotel_tags = escape($_POST['tags']);
+        $hotel_status = escape($_POST['status']);
+        $hotel_type = escape($_POST['hotel_type']);
+        $hotel_map = escape($_POST['hotel_map']);
+        $hotel_price = escape($_POST['hotel_price']);
+        $hotel_website = escape($_POST['hotel_website']);
+        $hotel_address = escape($_POST['hotel_address']);
+        $hotel_views = 0;
+
+        // get the city id
+        $get_city = mysqli_query($conn, "SELECT city_id FROM cities WHERE city_name = '$hotel_city' ");
+        $row = mysqli_fetch_assoc($get_city);
+        $hotel_city_id = $row['city_id'];
+
+        //    image upload 
+        $hotel_image = $_FILES['image'];
+        $image_name = $_FILES['image']['name'];
+        $tmp_dir = $_FILES['image']['tmp_name'];
+        move_uploaded_file($tmp_dir, "../img/hotel/" . $image_name);
+
+        $hotel_add = "INSERT INTO hotels(hotel_id,hotel_name,hotel_city,hotel_city_id,hotel_type,hotel_map,hotel_info,hotel_price,website,author,hotel_pic,hotel_address,hotel_views,hotel_tags,hotel_status) VALUES ('','$hotel_name','$hotel_city','$hotel_city_id','$hotel_type','$hotel_map','$hotel_content','$hotel_price','$hotel_website','$hotel_author','$image_name','$hotel_address','$hotel_views','$hotel_tags','$hotel_status')";
+
+
+        $hotel_response = mysqli_query($conn, $hotel_add);
+
+        if ($hotel_response) {
+            $_SESSION['success'] = "<div class='alert alert-success' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-check-circle'></i></strong> Destination Added Successfully!
+            </div>";
+            header("Location: hotel_list.php");
+        } else {
+            $_SESSION['error'] = "<div class='alert alert-danger' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            <strong><i class='fas fa-exclamation-circle'></i></strong> Destination Not Added!
+            </div>";
+            header("Location: hotel_list.php");
+        }
+    }
+}
+
+hotelAdd();
