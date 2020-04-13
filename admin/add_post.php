@@ -80,6 +80,7 @@ if (isset($_SESSION['username'])) {
                             <div class="form-group">
                                 <label> Post Image</label>
                                 <input type="file" class="form-control form-control-user" name="image" id="image">
+                                <small>Image resolution : 800 x 534</small>
                             </div>
                             <div class="form-group">
                                 <label> Post Content</label>
