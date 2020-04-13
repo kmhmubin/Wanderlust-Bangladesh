@@ -6,9 +6,16 @@ include "include/header.php";
 <!-- Sidebar -->
 <?php include "include/sidenavbar.php";
 
-
-if (isset($_SESSION['username'])) {
     // if username is true show those
+
+    // if username is true show those
+    if (isset($_SESSION['username'])) {
+        $user = $_SESSION['username'];
+        $sql = mysqli_query($conn, "SELECT * FROM users WHERE username = '$user'");
+        $row = mysqli_fetch_assoc($sql);
+        $username = $row['username'];
+        $profile_pic = $row['profile_pic'];
+        $role = $row['role'];
 ?>
 
     <!-- End of Sidebar -->
@@ -50,24 +57,24 @@ if (isset($_SESSION['username'])) {
                             foreach ($edit_response as $row) {
 
                         ?>
-                                <form action="add_admin.php" method="POST">
+                                <form action="" method="POST">
                                     <!-- edit form -->
                                     <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" name="edit_fname" value="<?php echo $row['First_Name']; ?>" id="exampleFirstName" placeholder="First Name">
+                                        <input type="text" class="form-control form-control-user" name="edit_fname" value="<?php echo $row['first_name']; ?>" id="exampleFirstName" placeholder="First Name">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" name="edit_lname" value="<?php echo $row['Last_Name']; ?>" id="exampleLastName" placeholder="Last  Name">
+                                        <input type="text" class="form-control form-control-user" name="edit_lname" value="<?php echo $row['last_name']; ?>" id="exampleLastName" placeholder="Last  Name">
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" name="edit_username" value="<?php echo $row['User_Name']; ?>" id="exampleInputUserName" placeholder="User Name">
+                                        <input type="text" class="form-control form-control-user" name="edit_username" value="<?php echo $row['username']; ?>" id="exampleInputUserName" placeholder="User Name">
                                     </div>
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user" name="edit_email" value="<?php echo $row['email']; ?>" id="exampleInputEmail" placeholder="Email Address">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" name="edit_password" value="<?php echo $row['Password']; ?>" id="exampleInputPassword" placeholder="Password">
+                                        <input type="password" class="form-control form-control-user" name="edit_password" value="<?php echo $row['password']; ?>" id="exampleInputPassword" placeholder="Password">
                                     </div>
                                     <div class="form-group">
                                         <label>User Role</label>
