@@ -10,6 +10,18 @@ include "login/header-signin.php";
     <div class="container">
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
+                <?php
+                if (isset($_SESSION['success']) && $_SESSION['success'] != '') {
+                    echo $_SESSION['success'];
+                    unset($_SESSION['success']);
+                }
+
+                if (isset($_SESSION['error']) && $_SESSION['error'] != '') {
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                }
+
+                ?>
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
@@ -19,7 +31,7 @@ include "login/header-signin.php";
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
                             <form class="user" action="check_register.php" method="POST" onsubmit="return validation()">
-                                <div class="form-group row">
+                                <!-- <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" name="firstName" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
                                     </div>
@@ -27,7 +39,7 @@ include "login/header-signin.php";
                                         <input type="text" name="lastName" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
                                     </div>
                                     <span id="nameError" class="text-danger"></span>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <input type="text" name="userName" class="form-control form-control-user" id="exampleInputUserName" placeholder="User Name">
                                     <span id="userError" class="text-danger"></span>
@@ -71,7 +83,13 @@ include "login/header-signin.php";
 <script src="js/validation.js"></script>
 
 
-
+<script>
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function() {
+            $(this).remove();
+        });
+    }, 4000);
+</script>
 <?php
 include "login/footer-signin.php";
 require_once "inc/footer.php";
