@@ -35,7 +35,7 @@
 
                 ?>
                      <!-- Single Features Area -->
-                     <a href="#">
+                     <a href="estination_details.php?dest_id=<?php echo $dest_id; ?>">
                          <div class="col-12 col-sm-6 col-lg-4">
                              <div class="single-features-area mb-50">
                                  <img src="img/dest/<?php echo $dest_image; ?>" alt="destination_image">
