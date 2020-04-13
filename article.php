@@ -60,7 +60,7 @@ include "inc/navbar.php";
                 <!-- sidebar search bar end -->
                 <div class="p-5"></div>
                 <!-- sidebar author section start -->
-                <?php include "blogs/sidebar-author.php"; ?>
+                <!-- <?php include "blogs/sidebar-author.php"; ?> -->
                 <!-- sidebar  popular posts list  -->
                 <?php include "blogs/sidebar-popular-post.php"; ?>
                 <!-- Popular post list sidebar end -->

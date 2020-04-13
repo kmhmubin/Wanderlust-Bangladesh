@@ -1,18 +1,32 @@
-   <!-- sidebar author section start -->
-   <div class="sidebar-box">
-       <div class="bio text-center">
-           <img src="img/images/person_3.jpg" alt="board cat" class="img-fluid">
-           <div class="bio-body">
-               <h2>Exhausted Cat</h2>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias minus.</p>
-               <hr>
-               <p class="social">
-                   <a href="#" class="p-2"><span class="fab fa-facebook"></span></a>
-                   <a href="#" class="p-2"><span class="fab fa-twitter"></span></a>
-                   <a href="#" class="p-2"><span class="fab fa-instagram"></span></a>
-                   <a href="#" class="p-2"><span class="fab fa-youtube"></span></a>
-               </p>
-           </div>
-       </div>
-   </div>
-   <!-- sidebar author section start -->
+ <?php
+
+    $author = "SELECT FROM users Where";
+
+    $result = mysqli_query($conn, $author);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $username = $row['username'];
+            $profile_pic =  $row['profile_pic'];
+            $bio = $row['bio'];
+
+    ?>
+
+         <!-- sidebar author section start -->
+         <div class="sidebar-box">
+             <div class="bio text-center">
+                 <img src="img/user/<?php echo $profile_pic; ?>" alt="author image" class="img-fluid">
+                 <div class="bio-body">
+                     <h2><?php echo $username; ?></h2>
+                     <p><?php echo $bio; ?></p>
+                     <hr>
+                 </div>
+             </div>
+         </div>
+         <!-- sidebar author section start -->
+ <?php
+
+        }
+    }
+
+    ?>
