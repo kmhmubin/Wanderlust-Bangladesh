@@ -227,7 +227,45 @@ if (isset($_SESSION['username'])) {
               <!-- Card Content - Collapse -->
               <div class="collapse show" id="collapseCardUser">
                 <div class="card-body">
-                  This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the card header</strong> to see the card body collapse and expand!
+                  <!-- Fetching data from database in the table -->
+                 <?php
+                 $show_data = "SELECT * FROM users WHERE role = 'Client' ORDER BY id DESC LIMIT 5";
+                 $query_response = mysqli_query($conn, $show_data);
+                 ?>
+                 <div class="table-responsive">
+                   <table class="table table-bordered"  width="100%" cellspacing="0">
+                     <thead>
+                       <tr>
+                         <th>Name</th>
+                         <th>Added Time</th>
+                       </tr>
+                     </thead>
+                     <tfoot>
+                       <tr>
+                         <th>Name</th>
+                         <th>Added Time</th>
+                       </tr>
+                     </tfoot>
+                     <tbody>
+
+                       <?php
+                       if (mysqli_num_rows($query_response) > 0) {
+                         while ($row = mysqli_fetch_assoc($query_response)) {
+                       ?>
+                           <tr>
+                             <td><?php echo $row['username']; ?></td>
+                             <td><?php echo $row['join_date']; ?></td>
+                           </tr>
+                       <?php
+                         }
+                       } else {
+                         echo "No Record Found!";
+                       }
+                       ?>
+
+                     </tbody>
+                   </table>
+                 </div>
                 </div>
               </div>
             </div>
@@ -251,43 +289,47 @@ if (isset($_SESSION['username'])) {
               <!-- Card Content - Collapse -->
               <div class="collapse show" id="collapseCardDestination">
                 <div class="card-body">
+                   <!-- Fetching data from database in the table -->
+                  <?php
+                  $show_data = "SELECT * FROM destinations ORDER BY dest_id DESC LIMIT 5";
+                  $query_response = mysqli_query($conn, $show_data);
+                  ?>
                   <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered"  width="100%" cellspacing="0">
                       <thead>
                         <tr>
                           <th>Title</th>
+                          <th>City</th>
                           <th>Author</th>
                           <th>Time</th>
-                          <th>Action</th>
                         </tr>
                       </thead>
                       <tfoot>
                         <tr>
                           <th>Title</th>
+                          <th>City</th>
                           <th>Author</th>
                           <th>Time</th>
-                          <th>Action</th>
                         </tr>
                       </tfoot>
                       <tbody>
-                        <tr>
-                          <td>Tiger Nixon</td>
-                          <td>System Architect</td>
-                          <td>2011/04/25</td>
-                          <td> <a href="#" class="btn btn-danger btn-circle">
-                              <i class="fas fa-trash"></i>
-                            </a> <a href="#" class="btn btn-success btn-circle">
-                              <i class="fas fa-check"></i>
-                            </a></td>
-                        </tr>
-                        <tr>
-                          <td>Garrett Winters</td>
-                          <td>Accountant</td>
-                          <td>2011/07/25</td>
-                          <td> <a href="#" class="btn btn-danger btn-circle">
-                              <i class="fas fa-trash"></i>
-                            </a></td>
-                        </tr>
+
+                        <?php
+                        if (mysqli_num_rows($query_response) > 0) {
+                          while ($row = mysqli_fetch_assoc($query_response)) {
+                        ?>
+                            <tr>
+                              <td><?php echo $row['dest_title']; ?></td>
+                              <td><?php echo $row['dest_city']; ?></td>
+                              <td><?php echo $row['dest_author']; ?></td>
+                              <td><?php echo $row['dest_date']; ?></td>
+                            </tr>
+                        <?php
+                          }
+                        } else {
+                          echo "No Record Found!";
+                        }
+                        ?>
 
                       </tbody>
                     </table>
@@ -318,7 +360,7 @@ if (isset($_SESSION['username'])) {
                   ?>
 
 
-                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
                       <tr>
                         <th>ID</th>
