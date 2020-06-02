@@ -17,7 +17,7 @@ require_once "inc/navbar.php";
                             is monsoon mists over the delta <br> with green hills and secrets.
                         </div>
                     </div>
-                    <a href="#" class="btn bg-warning">Learn Bangladesh</a>
+                    <!-- <a href="#" class="btn bg-warning">Learn Bangladesh</a> -->
                 </div>
             </div>
         </div>
