@@ -18,7 +18,7 @@
                  <a href="#" class="blog-entry element-animate" data-animate-effect="fadeIn">
                      <img src="https://i.ibb.co/stmXFvC/dawid-zawila-zb2v-Ba-HYB2-I-unsplash.jpg" alt="Image placeholder">
                      <div class="blog-content-body">
-                         <h2>How to Find the Video Games for Cats</h2>
+                         <h2>Geography of Bangladesh</h2>
                      </div>
                  </a>
              </div>
@@ -27,7 +27,7 @@
                  <a href="#" class="blog-entry element-animate" data-animate-effect="fadeIn">
                      <img src="https://i.ibb.co/stmXFvC/dawid-zawila-zb2v-Ba-HYB2-I-unsplash.jpg" alt="Image placeholder">
                      <div class="blog-content-body">
-                         <h2>How to Find the Video Games for Cats</h2>
+                         <h2>How to Find Hotel In Bangladesh</h2>
                      </div>
                  </a>
              </div>
@@ -36,7 +36,7 @@
                  <a href="#" class="blog-entry element-animate" data-animate-effect="fadeIn">
                      <img src="https://i.ibb.co/stmXFvC/dawid-zawila-zb2v-Ba-HYB2-I-unsplash.jpg" alt="Image placeholder">
                      <div class="blog-content-body">
-                         <h2>How to Find the Video Games for Cats</h2>
+                         <h2>How to Find Best Restaurant in Dhaka</h2>
                      </div>
                  </a>
              </div>
