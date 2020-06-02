@@ -52,3 +52,10 @@
 6. Search
 7. Sign IN
 8. Sign UP
+
+## Admin Info
+
+```
+username: goku
+password: goku12345
+```
