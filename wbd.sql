@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2020 at 06:24 PM
+-- Generation Time: Jun 02, 2020 at 07:37 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -94,9 +94,9 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`comm_id`, `comment_name`, `comment_email`, `comment_body`, `comment_status`, `comment_post_id`, `comment_date`) VALUES
-(1, 'Mubin', 'mubin@mubin.com', 'Nice Post', 'Approve', 1, '2020-04-13 21:28:22'),
-(2, 'Mubin', 'mubin@mubin.com', 'Nice Post', 'Unapproved', 1, '2020-04-13 21:28:28'),
-(3, 'Mubin', 'mubin@mubin.com', 'Nice Post', 'Unapproved', 1, '2020-04-13 21:38:10');
+(2, 'Mubin', 'mubin@mubin.com', 'Nice Post', 'Approve', 1, '2020-06-02 23:13:36'),
+(3, 'Mubin', 'mubin@mubin.com', 'Nice Post', 'Approve', 1, '2020-06-02 23:13:44'),
+(4, 'goku', 'goku@goku.com', 'Nice Pictures.!!', 'Approve', 2, '2020-06-02 23:13:48');
 
 -- --------------------------------------------------------
 
@@ -230,7 +230,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `profile_pic`, `is_active`, `post_id`, `role`, `join_date`, `first_name`, `last_name`, `gender`, `bio`) VALUES
 (1, 'goku', 'goku@gmail.com', 'a78b7cf6412d9819a616e5cef4d51d5f', '../img/user/wbd5e8b56e888f072.34325787.jpg', 'yes', 0, 'Admin', '2020-04-06 23:33:18', 'Super', 'Sayien', 'Male', 'Goku Super Sayien'),
-(2, 'mubin', 'mubin@mubin.com', '25f9e794323b453885f5181f1b624d0b', '../img/user/wbd5e948573dcf2a3.76916751.jpg', 'yes', 0, 'Admin', '2020-04-13 21:29:55', 'Mr.', 'Mubin', 'Male', 'Hello, My Name is Mubin. I love Nature.');
+(3, 'mubin', 'mubin@mubin.com', '5639ecf47a71cdcbc69c7575b5a8b571', '../img/user/pp2.png', 'yes', 0, 'Admin', '2020-04-13 22:55:12', 'Mr.', 'Mubin', 'Male', 'Hello! My Name is Mubin'),
+(5, 'admin', 'admin@admin.com', '5f4dcc3b5aa765d61d8327deb882cf99', '../img/user/pp1.png', 'yes', 0, 'Admin', '2020-06-02 23:02:16', '', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -304,7 +305,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `destinations`
@@ -334,7 +335,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
